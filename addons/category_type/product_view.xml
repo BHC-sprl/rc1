@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="product_category_form_view_20140610" model="ir.ui.view">
+            <field name="name">product.category.form</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/> 
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="prod_categ_type_id"/>
+                    <field name="code"/>
+                </field>                
+            </field>
+        </record>
+
+        
+        <record id="product_category_type_form_view" model="ir.ui.view">
+            <field name="name">product.category.type.form</field>
+            <field name="model">product.category.type</field>
+            <field name="arch" type="xml">
+                <form string="Product Categories Type" version="7.0">
+                    <sheet>
+                        <group>
+                             <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_category_type_list_view" model="ir.ui.view">
+            <field name="name">product.category.type.list</field>
+            <field name="model">product.category.type</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Product Categories Type">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="product_category_type_action_form" model="ir.actions.act_window">
+            <field name="name">Product Categories Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.category.type</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="product_category_type_list_view"/>
+        </record>
+        <menuitem action="product_category_type_action_form"
+            groups="base.group_no_one"
+            id="menu_product_category_type_action_form"
+            parent="product.prod_config_main" sequence="2"/>
+        
+    </data>
+</openerp>

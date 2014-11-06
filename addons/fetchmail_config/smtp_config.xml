@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data noupdate="1">
+		<record id="base.ir_mail_server_localhost0" model="ir.mail_server">
+			<field name="name">localhost</field>
+			<field eval="10" name="sequence"/>
+			<field eval="25" name="smtp_port"/>
+			<field name="smtp_host">localhost</field>
+			<field eval="0" name="smtp_debug"/>
+			<field name="smtp_encryption">none</field>
+		</record>
+		
+		<record id="fetchmail_server_opportunits0" model="fetchmail.server">
+			<field eval="1" name="active"/>
+			<field name="configuration">Use the below script with the following command line options with your Mail Transport Agent (MTA)
+
+openerp_mailgate.py -u 1 -p PASSWORD -o crm.lead -d dev_phase_1 --host=HOSTNAME --port=PORT 
+</field>
+			<field name="name">Pistes</field>
+			<field name="script">/mail/static/scripts/openerp_mailgate.py</field>
+			<field eval="1" name="is_ssl"/>
+			<field eval="0" name="original"/>
+			<field name="object_id" ref="crm.model_crm_lead"/>
+			<field name="server">server</field>
+			<field eval="5" name="priority"/>
+			<field eval="1" name="attach"/>
+			<field eval="1" name="active"/>
+			<field name="state">draft</field>
+			<field name="user">user</field>
+			<field name="password">pwd</field>
+			<field name="type">pop</field>
+			<field eval="995" name="port"/>
+		</record>
+	</data>
+</openerp>

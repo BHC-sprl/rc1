@@ -1,0 +1,112 @@
+name;parent;categ_type;type;code;account_income;account_expense;stock_account_input;stock_account_output;stock_journal;intrastat;prodcom
+ADHESIFS;;normal;matiere premiere;AD;;;;;;;
+ALUMINIUM;;normal;negoce;AL;;;;;;;
+ENCRES AQUAFLEX;;normal;matiere premiere;AQ;;;;;;;
+BOITES CADEAU;;normal;negoce;BC;;;;;;;
+BOBINES PAPIER CADEAU;;normal;fini;BE;;;;;;;
+BOLDUC;;normal;negoce;BO;;;;;;;
+BOITES CARTONS;;normal;matiere premiere;BT;;;;;;48119000;
+CANGIANTE;;normal;negoce;CA;;;;;;58064000;
+CHEMIN DE TABLE     ;;normal;fini;CI;;;;;;48183000;
+FRAIS DE CLICHES;;normal;fini;CL;;;;;;84425020;18132000
+CHEMIN DE TABLE SOFT;;normal;fini;CW;;;;;;48030039;17122057
+DEMI-FINI OUATE;;normal;semi fini;DA;;;;;;;
+DEMI-FINI WALKI BRIO;;normal;semi fini;DB;;;;;;;
+DEMI-FINI CRISTAL;;normal;semi fini;DC;;;;;;;
+DEMI-FINIS ESSAIS;;normal;semi fini;DE;;;;;;;
+DEMI FINI PAP.CAD.;;normal;semi fini;DF;;;;;;;
+DEMI-FINI GAUFRE;;normal;negoce;DG;;;;;;;
+DEMI-FINI TAT HYJET;;normal;semi fini;DH;;;;;;;
+DEMI-FINI IMPRIME;;normal;semi fini;DI;;;;;;;
+DEMI-FINI METALLISES;;normal;semi fini;DM;;;;;;;
+DEMI-FINI POLYSOFT;;normal;semi fini;DO;;;;;;;
+DEMI-FINI FILM IMPR.;;normal;semi fini;DP;;;;;;;
+DEMI-FINI SILK;;normal;semi fini;DS;;;;;;48030010;
+DEMI-FINI TISSUE;;normal;semi fini;DT;;;;;;;
+DEMI-FINI UNIS;;normal;semi fini;DU;;;;;;;
+DEMI-FINI SOFT;;normal;semi fini;DW;;;;;;48030039;17122057
+DEMI-FINI SOFTEX+;;normal;semi fini;DX;;;;;;;
+DISPLAY;;normal;fini;DY;;;;;;48183000;17221180
+ETIQUETTES BOITES;;normal;matiere premiere;EB;;;;;;12345678;
+ETIQ CODES-BARRES;;normal;matiere premiere;EC;;;;;;;
+ENCRES DIVERSES;;normal;matiere premiere;ED;;;;;;;
+ETIQUETTES N.PLIEES;;normal;matiere premiere;EN;;;;;;12345678;
+ETIQUETTES RLX;;normal;matiere premiere;ER;;;;;;12345678;
+ESSAIS;;normal;fini;ES;;;;;;;
+ESSUIE-TOUT;;normal;negoce;ET;;;;;;;
+PRODUITS DIVERS;;normal;matiere premiere;FA;;;;;;;
+FORMATS BLANCS;;normal;fini;FB;;;;;;48183000;17221180
+FONDS CARTON;;normal;negoce;FC;;;;;;;
+FORMATS DAMASSES;;normal;fini;FD;;;;;;48183000;17221180
+FORMATS IMPRIMES;;normal;fini;FI;;;;;;48183000;17221180
+FILM PLASTIQUE;;normal;matiere premiere;FL;;;;;;;
+FORMULES ENCRES;;normal;matiere premiere;FO;;;;;;;
+FEUILLES PAPIER;;normal;fini;FP;;;;;;;
+PAPIER COUCHE GDV;;normal;fini;GL;;;;;;48102210;17127360
+PAPIER KRAFT GDV;;normal;fini;GP;;;;;;48043159;17124160
+POLYPROPYLENE GDV;;normal;fini;GT;;;;;;39202021;22213021
+IMPRESSION FILM;;normal;fini;IF;;;;;;39201028;22213010
+IMPRESSION PAPIER;;normal;fini;II;;;;;;48183000;17221180
+IMPRESSION FILM;;normal;fini;IP;;;;;;39201028;22213010
+IMPRESSION SILK;;normal;fini;IS;;;;;;48030010;17122030
+ROULEAUX TISSUE;;normal;fini;IT;;;;;;48183000;17221180
+IMPRESSION WALKI;;normal;fini;IW;;;;;;48030039;17122057
+KRAFT BLANC ET BRUN;;normal;negoce;KB;;;;;;48043159;17124160
+ENCRES MATES;;normal;matiere premiere;MA;;;;;;;
+RUBAN MAT COLOURS;;normal;negoce;MC;;;;;;58064000;
+RUBAN MAT LINE;;normal;negoce;ML;;;;;;58064000;
+METAL MAT;;normal;negoce;MM;;;;;;58064000;
+MANDRINS;;normal;matiere premiere;MN;;;;;;;
+MATIERES PREMIERES;;normal;matiere premiere;MP;;;;;;;
+NAPPE ALUMINISEE;;normal;negoce;NA;;;;;;63109000;
+NAPPE PLIEE SOFTBRIO;;normal;fini;NB;;;;;;48030039;17122057
+NAPPE PLIEE CRISTAL;;normal;fini;NC;;;;;;48030010;17221180
+NAPPES PLIEES IMPRIM;;normal;fini;NI;;;;;;48183000;17221180
+NEW KILT;;normal;negoce;NK;;;;;;58064000;
+NAPPES PLIEES METAL;;normal;fini;NM;;;;;;48183000;17221180
+NAPPES PL. POLYSOFT;;normal;fini;NO;;;;;;48030039;17122057
+NAPPES PLIEES;;normal;fini;NP;;;;;;48183000;17221180
+NAPPES SILK;;normal;fini;NS;;;;;;48030010;17122030
+NAPPES TISSUE;;normal;fini;NT;;;;;;48183000;17221180
+NAPPES PLIEES UNIES;;normal;fini;NU;;;;;;48183000;17221180
+NAPPES PLIEES VRAC;;normal;semi fini;NV;;;;;;;
+NAPPES PLIEES SOFT;;normal;fini;NW;;;;;;48119000;17127780
+PAPIER CADEAUX;;normal;fini;PC;;;;;;48119000;17127780
+DIVERS           ;;normal;negoce;PS;;;;;;44152090;
+PAPIER TERMINE;;normal;fini;PT;;;;;;48119000;17127780
+ROULEAUX SOFT BRIO;;normal;fini;RB;;;;;;48030039;17122057
+ROULEAUX CRISTAL;;normal;fini;RC;;;;;;48030010;17221180
+ROULEAUX DAMASSES;;normal;fini;RD;;;;;;48183000;17221180
+RUBANS ENCREURS;;normal;matiere premiere;RE;;;;;;;
+ROULEAUX IMPRIMES;;normal;fini;RI;;;;;;48183000;17221180
+NOEUDS A TIRER;;normal;negoce;RL;;;;;;;
+ROULEAUX METALLISES;;normal;fini;RM;;;;;;48183000;17221180
+RLX POLYSOFT;;normal;fini;RO;;;;;;48030039;17122057
+RAVIERS POLYSTYRENE;;normal;negoce;RP;;;;;;;
+ROULEAUX SILK;;normal;fini;RS;;;;;;48030010;17122030
+ROULEAUX TISSUE;;normal;fini;RT;;;;;;48183000;17221180
+ROULEAUX UNIS;;normal;fini;RU;;;;;;48183000;17221180
+ROULEAUX VRAC;;normal;semi fini;RV;;;;;;;
+RLX WALKISOFT;;normal;fini;RW;;;;;;48030039;17122057
+ROULEAUX SOFTEX+;;normal;fini;RX;;;;;;48030010;17221180
+SACS NEUTRES;;normal;negoce;SA;;;;;;12345678;
+SERVIETTES BLANCHES;;normal;negoce;SB;;;;;;48030090;17123100
+SERVIETTES COULEUR;;normal;negoce;SC;;;;;;48030090;17123100
+SLEEVES;;normal;sleeve;SE;;;;;;;
+SACS PAPIER DE LUXE;;normal;negoce;SL;;;;;;48194000;
+SACHETS NAPPES PP;;normal;matiere premiere;SN;;;;;;;
+SOLVANTS;;normal;matiere premiere;SO;;;;;;;
+SACHETS PAPIER;;normal;negoce;SP;;;;;;48119000;17127780
+SETS IMPRIMES;;normal;fini;ST;;;;;;48183000;17221180
+SERVIETTES SOFT;;normal;negoce;SW;;;;;;48030039;17122057
+TETE A TETE BRIO;;normal;fini;TB;;;;;;48030039;17122057
+TETE A TETE HYJET;;normal;fini;TH;;;;;;56031290;13951020
+TETE-A-TETE IMPRIMES;;normal;fini;TI;;;;;;48183000;17221180
+NAPPES + TETE-A-TETE;;normal;fini;TN;;;;;;48183000;17221180
+POLYPROP.EXP.PERS.;;normal;fini;TP;;;;;;39202021;22213021
+POLYPROP.EXP.;;normal;fini;TR;;;;;;39202021;22213021
+TETE-A-TETE UNIS;;normal;fini;TU;;;;;;48183000;17221180
+TETE-A-TETE EN VRAC;;normal;semi fini;TV;;;;;;48030039;
+TETE-A-TETE;;normal;fini;TW;;;;;;48030039;17122057
+VAISSELLE PLASTIQUE;;normal;negoce;VP;;;;;;12345678;
+PAPIER HYGIENIQUE;;normal;negoce;WC;;;;;;12345678;

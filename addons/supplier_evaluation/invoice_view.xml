@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        
+        <record id="invoice_supplier_form_inh20140512" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form</field>
+            <field name="model">account.invoice</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>            
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Evaluation">
+                        <group>
+                            <field name="ttl_evaluation"/>
+                        </group>
+                        <field name="evaluation_ids">
+                            <tree string="Evaluation" editable="top">
+	                            <field name="name" readonly="True"/>
+                                <field name="ponderation" readonly="True"/> 	                            
+	                            <field name="cote" on_change="onchange_cote(cote,ponderation,context)"/>
+	                            <field name="ttl_line" sum='Total' readonly="False"/>   
+	                         </tree>
+	                         <form>
+	                             <group>
+		                            <field name="name" readonly="True"/>
+                                    <field name="ponderation" readonly="True"/>		                            
+	                                <field name="cote" on_change="onchange_cote(cote,ponderation,context)"/>
+	                                <field name="ttl_line" readonly="False"/>   
+                                </group>
+	                         </form>                                                    
+                        </field>
+
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>

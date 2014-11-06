@@ -1,0 +1,588 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>    
+ 
+
+        
+<!--  Product By category -->  
+        <record id="bhc_product_category_action" model="ir.actions.act_window">
+            <field name="name">Product By Categories</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>         
+            <field name="view_id" ref="product.product_product_tree_view"/>
+            <field name="search_view_id" ref="product.product_search_form_view"/>
+            <field name="context">{'search_default_categ_id_famille': 1}</field> 
+        </record>
+      
+        <menuitem
+            action="bhc_product_category_action"
+            id="menu_bhc_products_category"
+            parent="base.menu_product"
+            sequence="30" groups="access_right_pacarbel.group_menu_product"/>
+        
+<!-- Product -->        
+          <record id="product_template_form_view" model="ir.ui.view">
+            <field name="name">product.template.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="priority">5</field>
+            <field name="inherit_id" ref="account.product_template_form_view"/>
+            <field name="arch" type="xml">
+                    <label for="categ_id" string="Internal Category" position="replace"/>                                                                                                                                 
+                    <field name="categ_id" colspan="3" nolabel="1" position="replace"/>
+            </field>
+          </record>
+
+          
+        <record id="product_template_search_view_inh20140814" model="ir.ui.view">
+            <field name="name">product.template.search</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>            
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                   <field name="categ_id" string="Famille"/>
+                </field>
+                <xpath expr="//group[@string='Group by...']" position="inside">
+                    <filter string='Famille' name="categ_id_famille" domain="[]" context="{'group_by' : 'categ_id'}"/>
+                </xpath>
+                
+            </field>
+        </record>
+        
+        
+        <record id="product_normal_form_view_20140710" model="ir.ui.view">
+            <field name="name">product.normal.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>             
+            <field name="arch" type="xml">
+                <field name="type" position="before">
+                        <!-- <group>-->
+                            <label for="categ_id" string="Internal Category"/>                                                                                                                                 
+                            <div><field name="categ_id" colspan="3" nolabel="1" options="{'no_create': True}"/></div>
+                        <!-- </group>-->
+                        <newline></newline>
+                    
+                </field>
+
+                <field name="description" position="after">
+                    <!-- <field name="remarque" placeholder="Remarque..."/>-->
+                    <field name="quality" placeholder="Qualite..."/>                    
+                </field>
+                <field name="description" position="replace">
+                    <field name="description" placeholder="Description de l'article et remarque ..."/>
+                    <group string="Farde">
+                        <group>
+					        <field name="farde_id" on_change="farde_id_change(farde_id)" options="{'no_create': True}"/>      
+					       <!-- <field name="ink_formula"/>
+					         <field name="price_by_kg"/>-->
+				        </group>
+				        <group></group>
+			        </group>
+                    <group string="Sleeves">			        
+			            <field name="sleeves_ids" nolabel="1">
+                            <tree string="Sleeve">
+                                <field name="default_code"/>
+                                <field name="name"/>  
+                                <field name="ink_formula"/>                                                                   
+                            </tree>
+                            <form string="Sleeve">
+                                <group>
+	                                <field name="default_code"/>
+	                                <field name="name" options="{'no_create': True}"/>  
+	                                <field name="ink_formula"/>  
+                                </group>                                                                 
+                            </form>                            
+                        </field>                             		            
+			        </group>
+                </field>                
+                 <field name="weight_net" position="after">
+                    <field name="largeur"/>
+                    <field name="grammage"/>
+                    <field name="recompute_grammage"/>
+                    <field name="type_crochet"/>
+                    <field name="print_step"/>  
+                    <group col="4">                        
+                           <field name="f_pliage_1"/><label string="-" class="oe_inline"/>  <field name="f_pliage_2" nolabel="1" class="oe_inline"/>                                                                     
+                    </group>
+                 
+                </field>      
+                <field name="default_code" position="after">
+                    <field name="pantone"/>                    
+                    <field name="print_schema"/>
+                </field>
+                <field name="default_code" position="before">
+                    <field name="christmaes_product"/>  
+                    <field name="print_two_face"/>
+                    <field name="predecoupe"/>                    
+                    <field name="developpement"/>  
+                    <field name="relief"/> 
+                    <field name="nbr_color"/>  
+                    <field name="purcent_inking"/>                                       
+                    <field name="paletissation_id"/>    
+                    <field name="fsc_product"/>                               
+                </field> 
+                <field name="default_code" position="replace">
+                </field>
+                
+                <field name="image_medium" widget="image" class="oe_avatar oe_left" position="after">
+                    <div class="oe_title">
+                            <div class="oe_edit_only">                    
+                                <label for="default_code" name='default_code' string="Default Code"/>
+                            </div>
+                            <h1>
+                              <field name="default_code" required="True"/>  
+                           </h1>
+                    </div>                   
+                </field>
+
+
+                 <field name="product_manager" position="replace">
+                      <field name="product_manager" groups="acces_right_pacarbel.group_invisible"/>                    
+                 </field>
+                 
+                <field name="mes_type" position="replace">
+                    <field name="mes_type" groups="acces_right_pacarbel.group_invisible"/>
+                </field>
+                
+
+                <field digits="(14, 3)" name="volume" attrs="{'readonly':[('type','=','service')]}" position="replace">
+                </field>
+                
+                <field digits="(14, 3)" name="weight" attrs="{'readonly':[('type','=','service')]}" position="replace">                   
+                </field> 
+                
+                <field digits="(14, 3)" name="weight_net" attrs="{'readonly':[('type','=','service')]}" string="Weight Net (gramme)" position="replace">
+                </field>
+                        
+                <group name="weight" string="Weights" position="replace">
+                </group>                          
+
+                
+                 <field name="state" position="replace">
+                 </field>                
+                 <group name="status" string="Status" position="replace">
+                     <group name="status" string="Status" invisible="1"></group>
+                </group>
+                
+
+				 
+                <page string="Inventory" position="after">
+                    <page string="Technical Feature">
+                    <group name="weight" string="Technical Feature">
+                            <field digits="(14, 3)" name="volume" attrs="{'readonly':[('type','=','service')]}" invisible="1"/>                        
+                            <field digits="(14, 3)" name="weight" attrs="{'readonly':[('type','=','service')]}" string="Weight (gramme)"/>
+                            <field digits="(14, 3)" name="weight_net" attrs="{'readonly':[('type','=','service')]}" string="Weight Net (gramme)"/>
+                        
+                            <field name="largeur"/>
+                            <field name="longueur"/>                            
+                            <field name="grammage"/> 
+                            <field name="recompute_grammage"/>
+                            <field name="type_crochet"/>
+                            <field name="print_step"/>  
+                            <group col="4">                        
+                                   <field name="f_pliage_1"/><label string="-" class="oe_inline"/>  <field name="f_pliage_2" nolabel="1" class="oe_inline"/>                                                                     
+                            </group>                           
+                        </group>
+                       <group name="status2" string="Status">
+                          <field name="state"/>
+                          <field name="date_obsolete"/>  
+                      </group>
+                    
+                    </page>
+                </page>
+                <page string="Inventory" position="attributes">
+                        <attribute name="string">Stock</attribute>                    
+                </page>           
+            </field>
+        </record>
+        
+        <!--  <record id="view_normal_procurement_locations_form_20140610" model="ir.ui.view">
+            <field name="name">product.normal.procurement.locations.inherit2</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="stock.view_normal_procurement_locations_form"/>
+            <field name="arch" type="xml">
+                <field name="virtual_available" position="after">
+                     <field name="oncallqty"/>
+                    <field name="dep_gaillette"/>    
+                   <field name="qty_production"/> 
+                    <field name="qty_reserved_production"/>  
+                    <field name="qty_waiting"/>   
+                    <group string="Colis">
+                        <field name="qty_available_colis"/>
+                        <field name="incoming_qty_colis"/>     
+                        <field name="outgoing_qty_colis"/> 
+                        <field name="virtual_available_colis"/>                         
+                        <field name="oncallqty_colis"/>  
+                        <field name="dep_gaillette_colis"/>      
+                        <field name="qty_production_colis"/> 
+                        <field name="qty_reserved_production_colis"/>    
+                        <field name="qty_waiting_colis"/> 
+                    </group>
+                </field>   
+                  <group name="store" string="Storage Location" attrs="{'invisible':[('type','=','service')]}" position="replace">
+                     <group name="store" string="Storage Location" attrs="{'invisible':[('type','=','service')]}" groups="acces_right_pacarbel.group_invisible"/> 
+                 </group>                
+                
+            </field>
+        </record> -->       
+          <record id="view_template_property_form_20140723" model="ir.ui.view">
+            <field name="name">product.template.stock.property.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.view_template_property_form"/>
+            <field name="arch" type="xml">
+
+                
+                
+                     <group string="Stock and Expected Variations" attrs="{'invisible': [('type', '=', 'service')]}" groups="base.group_user" position="replace">
+                    </group>
+                    <group name="status" position="before">
+                    <newline/>
+                    <group string="Stock and Expected Variations" attrs="{'invisible': [('type', '=', 'service')]}" groups="base.group_user">                    
+                         <group>
+                           <label string="Title" /> 
+                           <newline/>                               
+                           <label for="qty_available" string="Physical Stock"/> 
+                           <newline/>  
+                           <label for="outgoing_qty" string="- Customer order Reserved"/> 
+                           <newline/>                             
+                           <label for="qty_reserved_production" string ="- Manufacturing Reserved"/>
+                           <newline/>                              
+                           <label for="virtual_available" string ="= Available Stock"/>   
+                           <newline/>                                                   
+                           <label for="qty_waiting"/>
+                           <newline/>                             
+                           <label for="qty_production"/>
+                           <newline/>                               
+                           <label for="oncallqty"/>
+                           <newline/>                             
+                           <label for="dep_gaillette" string ="Start Packing"/>
+                           <newline/>    
+                           <label for="incoming_qty" string ="Packaging"/>
+                           <newline/>                                                                                                                                                                                                                                                 
+                        </group>
+  
+                        <group>
+                          <div> 
+                           <label string="Colis/Bobines"/> 
+                           <newline/>                                                           
+                            <field name="qty_available_colis" nolabel="True"/>                            
+                             <newline/>  
+                            <field name="outgoing_qty_colis" nolabel="True"/> 
+                             <newline/>   
+                            <field name="qty_reserved_production_colis" nolabel="True"/>
+                             <newline/>     
+                            <field name="virtual_available_colis" nolabel="True"/>
+                             <newline/>                             
+                            <field name="qty_waiting_colis" nolabel="True"/>
+                             <newline/>                                
+                            <field name="qty_production_colis" nolabel="True"/>
+                             <newline/>                               
+                            <field name="oncallqty_colis" nolabel="True"/>
+                             <newline/>                               
+                            <field name="dep_gaillette_colis" nolabel="True"/>
+                             <newline/>    
+                            <field name="incoming_qty_colis" nolabel="True"/>
+                             <newline/>                                                                                                                                                                                                                            
+                          </div>
+                          <div>
+                           <label string="Rouleaux/Kgs"/> 
+                           <div></div>
+                           <newline/>                                
+                           <field name="qty_available" class="oe_inline" nolabel="True"/> 
+                           <button name="%(stock.action_view_change_product_quantity)d" string="⇒ Update"
+                                    type="action"
+                                    class="oe_link"/>
+                           <div></div>
+                            <newline/>  
+                            <field name="outgoing_qty" class="oe_inline"  nolabel="True"/> 
+                           <div></div>                            
+                           <newline/>                               
+                            <field name="qty_reserved_production" class="oe_inline"  nolabel="True"/>
+                           <div></div>                            
+                           <newline/>                                
+                            <field name="virtual_available" class="oe_inline"  nolabel="True"/>
+                           <div></div>                              
+                           <newline/>                             
+                            <field name="qty_waiting"  class="oe_inline" nolabel="True"/>
+                           <div></div>                            
+                           <newline/>                                
+                            <field name="qty_production"  class="oe_inline" nolabel="True"/>
+                           <div></div>                            
+                           <newline/>                               
+                            <field name="oncallqty"  class="oe_inline" nolabel="True"/>
+                           <div></div>                            
+                           <newline/>                               
+                            <field name="dep_gaillette"  class="oe_inline" nolabel="True"/>
+                           <div></div>                            
+                           <newline/>   
+                           <field name="incoming_qty" class="oe_inline"  nolabel="True"/>
+                           <div></div>                              
+                           <newline/>                                                                                     
+                          </div>  
+                        </group>
+                      <!--   
+                         <group>
+                                                                                                                                                                                          
+                        </group>
+                        
+                        <group>
+                          <div>                             
+                                                                                                                                    
+                          </div>
+                          <div>  
+                       
+                          </div>  
+                        </group>-->
+                        
+                        
+                    </group>
+                <newline/>                    
+                </group>
+                <newline/>
+                
+                
+           <!--      <field name="virtual_available" position="after">
+                     <field name="outgoing_qty"/>                     
+                     <field name="oncallqty"/>                    
+                    <field name="dep_gaillette"/>    
+                    <field name="qty_production"/>   
+                    <field name="qty_reserved_production"/>
+                    <field name="qty_waiting"/>
+                    <group string="Colis">
+                        <field name="qty_available_colis"/>
+                        <field name="incoming_qty_colis"/>     
+                        <field name="outgoing_qty_colis"/> 
+                        <field name="virtual_available_colis"/>                         
+                        <field name="oncallqty_colis"/>  
+                        <field name="dep_gaillette_colis"/>      
+                        <field name="qty_production_colis"/> 
+                        <field name="qty_reserved_production_colis"/>    
+                        <field name="qty_waiting_colis"/> 
+                    </group>                                                          
+                </field>  -->                          
+            </field>
+        </record>
+        
+          <record id="product_template_form_view_20140724" model="ir.ui.view">
+            <field name="name">product.template.stock.property.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                  <group name="sale_condition" string="Sale Conditions" colspan="3" position="replace">
+	                  <group name="sale_condition" string="Sale Conditions" colspan="3">                      
+	                      <label for="warranty" groups="acces_right_pacarbel.group_invisible"/>                                                                                                                                                
+	                      <div>
+	                          <field name="warranty" class="oe_inline" groups="acces_right_pacarbel.group_invisible"/>
+	                      </div>
+	                  </group>
+                  </group>
+                  <field digits="(14, 3)" name="volume" attrs="{'readonly':[('type','=','service')]}" position="replace">
+                      <field digits="(14, 3)" name="volume" attrs="{'readonly':[('type','=','service')]}" invisible="1"/>
+                  </field>
+                
+                
+            </field>
+          </record>
+        <record id="view_template_property_form_20140717" model="ir.ui.view">
+            <field name="name">product.template.stock.property.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.view_template_property_form"/>
+            <field name="arch" type="xml"> 
+                <group name="store" string="Storage Location" attrs="{'invisible':[('type','=','service')]}" position="replace">
+                     <group name="store" string="Storage Location" attrs="{'invisible':[('type','=','service')]}" groups="acces_right_pacarbel.group_invisible"/> 
+                 </group>                       
+                    
+            </field>
+        </record>   
+              
+        <record id="product_normal_form_view_2014_06_11" model="ir.ui.view">  
+            <field name="name">product.normal.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product_packaging.product_normal_form_view_2014_05_28"/>     
+            <field name="arch" type="xml">         
+                <field name="palette" position="after">
+                    <field name="qty_to_invoice"/>                 
+                </field>
+             </field>
+        </record>  
+<!-- Farde -->
+        <record id="product_farde_search_form_view" model="ir.ui.view">
+            <field name="name">product.farde.search.form</field>
+            <field name="model">product.farde</field>
+            <field name="arch" type="xml">
+                <search string="Product">
+                   <field name="name" string="Farde" filter_domain="[('name','ilike',self)]"/>         
+                   <field name="code" string="Code" filter_domain="[('code','ilike',self)]"/>                         
+                </search>
+            </field>
+        </record>
+                       
+
+        <record id="product_farde_form_view" model="ir.ui.view">
+            <field name="name">product.farde.form</field>
+            <field name="model">product.farde</field>
+            <field name="arch" type="xml">
+                <form string="Product Farde" version="7.0">
+                    <sheet>
+                        <group>
+                            <group>
+                                 <field name="code"/>                                
+	                             <field name="name"/>
+	                            <field name="infographie"/>
+                            </group>
+                            <group></group>
+                        </group>
+                        <group string="Sleeve">
+							<field name="sleeves_ids" nolabel="1">
+							    <tree string="Sleeve">
+							        <field name="default_code"/>
+							        <field name="name"/>							        
+							    </tree>
+							</field>                             
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_farde_list_view" model="ir.ui.view">
+            <field name="name">product.farde.list</field>
+            <field name="model">product.farde</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Product Farde">
+                    <field name="code"/>                    
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="product_farde_action_form" model="ir.actions.act_window">
+            <field name="name">Farde</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.farde</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="product_farde_list_view"/>
+            <field name="search_view_id" ref="product_farde_search_form_view"/>
+            
+        </record>
+        <menuitem action="product_farde_action_form"
+            groups="base.group_no_one"
+            id="menu_product_farde_action_form"
+            parent="product.prod_config_main" sequence="2"/>
+        
+        <menuitem action="product_farde_action_form"
+            groups="base.group_no_one"
+            id="menu_product_farde_action_form_purchase"
+            parent="purchase.menu_product_in_config_purchase" sequence="4"/>  
+            
+         <menuitem action="product_farde_action_form"
+            groups="base.group_no_one"
+            id="menu_product_farde_action_form_stock"
+            parent="stock.menu_product_in_config_stock" sequence="4"/>  
+        
+<!-- End farde -->         
+    
+    
+        <menuitem action="category_type.product_category_type_action_form"
+            groups="base.group_no_one"
+            id="menu_product_category_type_action_form_stock"
+            parent="stock.menu_product_in_config_stock" sequence="3"/>  
+            
+
+
+        <menuitem
+              action="product.product_uom_form_action" id="menu_stock_uom_form_action"        
+             parent="stock.menu_product_in_config_stock" sequence="10"/>
+
+        <menuitem
+             action="product.product_uom_categ_form_action" id="menu_stock_uom_categ_form_action"
+              parent="stock.menu_product_in_config_stock" sequence="5" /> 
+              
+        
+        <menuitem
+              action="product.product_uom_form_action" id="menu_so_uom_form_action"        
+             parent="product.prod_config_main" sequence="10"/>
+
+        <menuitem
+             action="product.product_uom_categ_form_action" id="menu_so_uom_categ_form_action"
+              parent="product.prod_config_main" sequence="5" />   
+              
+<!--  product sleeve -->
+
+        <record id="product_sleeve_form_view" model="ir.ui.view">
+            <field name="name">product.sleeve.form</field>
+            <field name="model">product.sleeve</field>
+            <field name="arch" type="xml">
+                <form string="Product Sleeve" version="7.0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="default_code"/>
+                                 <field name="name"/>
+                                <field name="ink_formula"/>
+                            </group>
+                            <group></group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>        
+<!-- palettisation
+        <record id="product_palettisation_search_form_view" model="ir.ui.view">
+            <field name="name">product.palettisation.search.form</field>
+            <field name="model">product.palettisation</field>
+            <field name="arch" type="xml">
+                <search string="Product">
+                   <field name="name" string="Code" filter_domain="[('name','ilike',self)]"/>
+                   <field string="Description" name="description" domain="[('description','ilike',self)]"/>                  
+                </search>
+            </field>
+        </record>
+                       
+
+        <record id="product_palettisation_form_view" model="ir.ui.view">
+            <field name="name">product.palettisation.form</field>
+            <field name="model">product.palettisation</field>
+            <field name="arch" type="xml">
+                <form string="Product Palettisation" version="7.0">
+                    <sheet>
+                        <group>
+                            <group>
+                                 <field name="name"/>
+                                <field name="description"/>
+                            </group>
+                            <group></group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_palettisation_list_view" model="ir.ui.view">
+            <field name="name">product.palettisation.list</field>
+            <field name="model">product.palettisation</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Product Palettisation">
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+        <record id="product_palettisation_action_form" model="ir.actions.act_window">
+            <field name="name">Palettisation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.palettisation</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="product_palettisation_list_view"/>
+            <field name="search_view_id" ref="product_palettisation_search_form_view"/>
+            
+        </record>
+        <menuitem action="product_palettisation_action_form"
+            groups="base.group_no_one"
+            id="menu_product_palettisation_action_form"
+            parent="product.prod_config_main" sequence="2"/>
+ End palettisation -->         
+ 
+         
+    </data>
+</openerp>

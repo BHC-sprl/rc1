@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>        
+            <field name="inherit_id" ref="sale.view_order_form"/>            
+            <field name="arch" type="xml">  
+                <button name="action_button_confirm" states="draft" string="Confirm Sale" type="object" groups="base.group_user" position="replace"/> 		
+                <button name="action_button_confirm" states="sent" string="Confirm Sale" class="oe_highlight" type="object" groups="base.group_user" position="replace">
+                    <button name="action_button_toconfirm" states="draft,sent" class="oe_highlight" type="object" string="To confirm"/>
+                    <button name="action_button_confirm" states="draft,sent,toconfirm" string="Confirm Sale" class="oe_highlight" type="object" groups="sale_confirm.group_so_confirmation"/> 
+                    <button name="action_button_todraft" states="toconfirm" string="Reset to draft" type="object" groups="sale_confirm.group_so_confirmation"/>                    
+                </button>
+                <button name="cancel" states="draft,sent" string="Cancel Quotation" groups="base.group_user" position="replace">
+                    <button name="cancel" states="draft,sent,toconfirm" string="Cancel Quotation" groups="base.group_user"/>
+                </button>
+                <field name="state" position="replace">
+                     <field name="state" widget="statusbar" statusbar_visible="draft,sent,toconfirm,progress,done" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>   
+                </field>
+            </field>
+        </record>    
+        <record id="sale.action_orders" model="ir.actions.act_window">
+            <field name="name">Sales Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="search_view_id" ref="sale.view_sales_order_filter"/>
+            <field name="context">{
+                    'search_default_my_sale_orders_filter': 1
+                }
+            </field>
+            <field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel', 'toconfirm'))]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a quotation that can be converted into a sales
+                    order.
+                </p><p>
+                    OpenERP will help you efficiently handle the complete sales flow:
+                    quotation, sales order, delivery, invoicing and payment.
+                </p>
+            </field>
+        </record>
+        
+        <record id="action_toconfirm_orders" model="ir.actions.act_window">
+            <field name="name">Quotation To Confirm</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="search_view_id" ref="sale.view_sales_order_filter"/>
+            <field name="context">{
+                    'search_default_my_sale_orders_filter': 0
+                }
+            </field>
+            <field name="domain">[('state','=','toconfirm')]</field>
+        </record>
+
+        <menuitem action="action_toconfirm_orders" id="menu_sale_toconfirm_order" parent="base.menu_sales" sequence="5" groups="sale_confirm.group_so_confirmation"/>      
+	</data>
+</openerp>

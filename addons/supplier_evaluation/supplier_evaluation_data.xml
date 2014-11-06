@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+        <record id="supplier_evaluation_configuration_1" model="supplier.evaluation.configuration">
+            <field name="name">Respect Delivery Delay</field>
+            <field name="ponderation">2</field>
+        </record>
+
+        <record id="supplier_evaluation_configuration_2" model="supplier.evaluation.configuration">
+            <field name="name">Overall quality, product compliance, claims</field>
+            <field name="ponderation">2</field>
+        </record>
+
+        <record id="supplier_evaluation_configuration_3" model="supplier.evaluation.configuration">
+            <field name="name">Price competitiveness</field>
+            <field name="ponderation">1</field>
+        </record>
+
+        <record id="supplier_evaluation_configuration_4" model="supplier.evaluation.configuration">
+            <field name="name">Quality of service provided</field>
+            <field name="ponderation">1</field>
+        </record>
+        
+        <record id="supplier_evaluation_configuration_5" model="supplier.evaluation.configuration">
+            <field name="name">Overall financial situation</field>
+            <field name="ponderation">1</field>
+        </record>    
+
+        <record id="supplier_evaluation_configuration_6" model="supplier.evaluation.configuration">
+            <field name="name">Level of support in R&amp;D and technical support</field>
+            <field name="ponderation">1</field>
+        </record>
+
+        <record id="supplier_evaluation_configuration_7" model="supplier.evaluation.configuration">
+            <field name="name">Reactivity</field>
+            <field name="ponderation">1</field>
+        </record>
+
+        <record id="supplier_evaluation_configuration_8" model="supplier.evaluation.configuration">
+            <field name="name">Compliance with the conditions announced</field>
+            <field name="ponderation">2</field>
+        </record>
+
+        <record id="supplier_evaluation_configuration_9" model="supplier.evaluation.configuration">
+            <field name="name">After sales service</field>
+            <field name="ponderation">1</field>
+        </record>
+        
+        <record id="supplier_evaluation_configuration_10" model="supplier.evaluation.configuration">
+            <field name="name">Flexibility in the implementation period of price change</field>
+            <field name="ponderation">1</field>
+        </record>          
+    </data>
+</openerp>

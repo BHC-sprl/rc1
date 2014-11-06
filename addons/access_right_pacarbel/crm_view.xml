@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+          <!-- <record model="ir.ui.view" id="crm_case_form_view_oppor_inh20140703">
+            <field name="name">Opportunities</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>  
+            <field name="arch" type="xml">
+               <button string="Meeting" type="object" name="action_makeMeeting" context="{'search_default_attendee_id': active_id, 'default_attendee_id' : active_id}" position="replace">
+                  <button string="Meeting" type="object" name="action_makeMeeting" context="{'search_default_attendee_id': active_id, 'default_attendee_id' : active_id}" invisible="1"/>
+               </button>
+                            
+            </field>
+        </record>-->
+    </data>
+</openerp>
+        

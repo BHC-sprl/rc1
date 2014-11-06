@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+acces_supplier_evaluation,supplier.evaluation,model_supplier_evaluation,purchase.group_purchase_manager,1,1,1,1
+acces_supplier_evaluation_configuration,supplier.evaluation.configuration,model_supplier_evaluation_configuration,purchase.group_purchase_manager,1,1,1,1
+acces_supplier_evaluation_reader,supplier.evaluation,model_supplier_evaluation,purchase.group_purchase_user,1,1,1,1
+acces_supplier_evaluation_configuration_reader,supplier.evaluation.configuration,model_supplier_evaluation_configuration,purchase.group_purchase_user,1,1,1,1
+acces_supplier_evaluation_reader1,supplier.evaluation,model_supplier_evaluation,base.group_user,1,1,1,0
+acces_supplier_evaluation_configuration_reader1,supplier.evaluation.configuration,model_supplier_evaluation_configuration,base.group_user,1,0,0,0

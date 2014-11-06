@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+         <menuitem action="product.product_template_action"                                                                                                                                                                                           
+            id="product.menu_product_template_action"
+            parent="base.menu_product" sequence="1" groups="access_right_pacarbel.group_invisible"/>
+        
+
+                 
+       <record id="product_normal_form_view_2014_05_28" model="ir.ui.view">
+            <field name="name">product.normal.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="ean13" position="replace">
+                    <field name="ean13" on_change="ean13_change(ean13)" options="{'no_create': True}" domain="[('product_id','=',False),]"/>
+                </field>  
+                <field name="lst_price" position="replace">
+                    <field name="lst_price" invisible="True"/>
+                </field>                 
+                <field name="description" placeholder="describe the product characteristics..." attrs="{'readonly': [('is_only_child', '=', False)]}" position="before">
+                    <group>
+                        <group>
+                            <field name="colis_ean13" domain="[('product_id','=',id),]"/>                            
+	                        <field name="carton"/>
+	                        <field name="palette"/>
+                        </group>
+                    </group>
+                </field>
+                <field name="description" placeholder="describe the product characteristics..." attrs="{'readonly': [('is_only_child', '=', False)]}" position="after">
+                    <group string="Graphics">
+                        <field name="infographie" nolabel="1"/>
+                    </group>
+                </field>
+                <notebook position="inside">                 
+                     <page string="Customer Code">
+                        <field name="customer_code_ids">
+                           <form>                             
+                                <field name="name"/>  
+                                <field name="partner_id"/>  
+                           </form>
+                           <tree editable="top">                            
+                                <field name="name"/>   
+                                <field name="partner_id"/>  
+                           </tree>
+                         </field>
+                    </page>
+                </notebook>                
+            </field>
+        </record>
+
+     
+<!-- Code EAN -->
+        <record id="product_ean13_search_form_view" model="ir.ui.view">
+            <field name="name">product.ean13.search.form</field>
+            <field name="model">product.ean13</field>
+            <field name="arch" type="xml">
+                <search string="Product">
+                   <field name="name" string="Code"/>
+                   <field string="Product" name="product_id"/>  
+                   <field name="ean14"/>                                     
+                </search>
+            </field>
+        </record>
+                       
+
+        <record id="product_ean13_form_view" model="ir.ui.view">
+            <field name="name">product.ean13.form</field>
+            <field name="model">product.ean13</field>
+            <field name="arch" type="xml">
+                <form string="Product EAN" version="7.0">
+                <header>
+                    <button name="action_generate_ean" string="Generate" type="object" icon="gtk-execute"/>                                                                                            
+                </header>                        
+                    <sheet>
+                        <group>
+                            <group>
+                                 <field name="name"/>
+                                <field name="product_id"/>
+                                 <field name="need_ean14"/>
+                                 <field name="ean14"/>                                
+                            </group>
+                            <group></group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_ean13_list_view" model="ir.ui.view">
+            <field name="name">product.ean13.list</field>
+            <field name="model">product.ean13</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Product EAN">
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="ean14"/>                      
+                </tree>
+            </field>
+        </record>
+        <record id="product_ean13_action_form" model="ir.actions.act_window">
+            <field name="name">Code EAN</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.ean13</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="product_ean13_list_view"/>
+            <field name="search_view_id" ref="product_ean13_search_form_view"/>
+            
+        </record>
+        <menuitem action="product_ean13_action_form"
+            groups="base.group_no_one"
+            id="menu_product_ean13_action_form"
+            parent="product.prod_config_main" sequence="2"/>
+
+         <menuitem action="product_ean13_action_form"
+            groups="base.group_no_one"
+            id="menu_product_ean13_action_form_purchase"
+            parent="purchase.menu_product_in_config_purchase" sequence="2"/>      
+            
+         <menuitem action="product_ean13_action_form"
+            groups="base.group_no_one"
+            id="menu_product_ean13_action_form_stock"
+            parent="stock.menu_product_in_config_stock" sequence="2"/>          
+<!-- End Code EAN -->              
+    </data>
+</openerp>

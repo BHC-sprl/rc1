@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+acces_product_ean13,product.ean13,model_product_ean13,base.group_user,1,1,1,1
+acces_customer_code,customer.code,model_customer_code,base.group_user,1,1,1,1
+"acces_product_ean14","product.ean14","model_product_ean14",access_right_pacarbel.group_menu_product,1,1,1,1

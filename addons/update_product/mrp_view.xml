@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+       <menuitem name="Products"
+            id="mrp.menu_mrp_bom"
+            parent="base.menu_mrp_root"
+            sequence="5"
+            groups="access_right_pacarbel.group_menu_product"/>
+        
+        
+        <record id="product_normal_action_mrp" model="ir.actions.act_window">
+            <field name="name">Product Variants</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>         
+            <field name="view_id" ref="product.product_product_tree_view"/>
+            <field name="search_view_id" ref="product.product_search_form_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to define a new product.
+              </p><p>
+                You must define a product for everything you sell, whether it's
+                a physical product, a consumable or a service you offer to
+                customers.
+              </p><p>
+                The product form contains information to simplify the sale
+                process: price, notes in the quotation, accounting data,
+                procurement methods, etc.
+              </p>
+            </field>
+        </record>
+         
+      <menuitem name="Products" id="menu_mrp_product_product" action="product_normal_action_mrp"
+          parent="mrp.menu_mrp_bom" groups="access_right_pacarbel.group_menu_product"/>
+      
+       <menuitem name="Products" 
+            id="mrp.menu_mrp_product_form" 
+            action="mrp.product_template_action"
+            parent="mrp.menu_mrp_bom"
+            groups="access_right_pacarbel.group_invisible"/>
+      
+      
+        <menuitem
+            id="menu_mrp_configuration_product"
+            name="Articles - accessoires"
+            parent="mrp.menu_mrp_configuration"
+            sequence="50"/>
+        
+        <menuitem
+            action="product.product_category_action_form" id="menu_product_category_config_mrp"
+            parent="update_product.menu_mrp_configuration_product" sequence="40" />    
+             
+         <menuitem action="product_packaging.product_ean13_action_form"
+            groups="base.group_no_one"
+            id="menu_product_ean13_action_form_mrp"
+            parent="update_product.menu_mrp_configuration_product" sequence="50"/>          
+        
+            
+        <menuitem action="category_type.product_category_type_action_form"
+            groups="base.group_no_one"
+            id="menu_product_category_type_action_form_mrp"
+            parent="update_product.menu_mrp_configuration_product" sequence="60"/>  
+            
+
+        <menuitem action="update_product.product_farde_action_form"
+            groups="base.group_no_one"
+            id="menu_product_farde_action_form_mrp"
+            parent="update_product.menu_mrp_configuration_product" sequence="70"/>              
+
+
+        <menuitem
+             action="product.product_uom_categ_form_action" id="menu_mrp_uom_categ_form_action"
+              parent="update_product.menu_mrp_configuration_product" sequence="80" />
+         
+
+        
+                <menuitem
+              action="product.product_uom_form_action" id="menu_mrp_uom_form_action"        
+             parent="update_product.menu_mrp_configuration_product" sequence="90"/> 
+        
+       
+      </data>       
+</openerp>
+      

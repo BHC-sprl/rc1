@@ -1,0 +1,257 @@
+﻿# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* partner_agent
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 8.0dev-20140416-230101\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-13 08:53+0000\n"
+"PO-Revision-Date: 2014-06-13 08:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_agent
+#: view:res.partner:0
+msgid "Accounting"
+msgstr "Comptabilité"
+
+#. module: partner_agent
+#: field:res.partner,activity_type:0
+msgid "Activity Type"
+msgstr "Type d'activité"
+
+#. module: partner_agent
+#: help:account.invoice,amount_com:0
+msgid "Amount for this invoice or refunds"
+msgstr "Montant pour cette facture ou note de crédit"
+
+#. module: partner_agent
+#: code:addons/partner_agent/agent.py:107
+#, python-format
+msgid "At least one pricelist has no active version !\n"
+"Please create or activate one."
+msgstr "Au moins une liste de prix n'as pas de version active !\n"
+"svp creez ou activez en une."
+
+#. module: partner_agent
+#: help:res.partner,amount_com_prev:0
+msgid "Base on the Commissioning Pricelist for the invoices and refunds in status 'Open'.\n"
+"Calcul = (customer invoices - customer refunds)base on the pricelist calcul"
+msgstr "Basé sur la liste de prix de commissionnement pour les factures et notes de crédit dans le statut \"Ouvert'.\n"
+"Calcul = (Factures client - note de crédit client) basé sur le calcul de la liste de prix"
+
+#. module: partner_agent
+#: help:res.partner,amount_com:0
+msgid "Base on the Commissioning Pricelist for the invoices and refunds in status 'Paid'.\n"
+"Calcul = ((customer invoices - customer refunds)base on the pricelist calcul) - Supplier commissioning invoices"
+msgstr "Basé sur la liste de prix de commissionnement pour les factures et notes de crédit dans le statut 'Payé'.\n"
+"Calcul = ((Factures client - note de crédit client) basé sur le calcul de la liste de prix\") - Factures fournisseur de commissionnement"
+
+#. module: partner_agent
+#: field:res.partner,blocage:0
+msgid "Block"
+msgstr "Blocage"
+
+#. module: partner_agent
+#: field:res.partner,closing:0
+msgid "Closing"
+msgstr "Fermeture"
+
+#. module: partner_agent
+#: view:res.partner:0
+msgid "Closing..."
+msgstr "Fermeture..."
+
+#. module: partner_agent
+#: field:account.invoice,amount_com:0
+#: field:res.partner,amount_com:0
+msgid "Commission"
+msgstr "Commission"
+
+#. module: partner_agent
+#: field:res.partner,amount_com_prev:0
+msgid "Commission previsionnelle"
+msgstr "Commission prévisionnelle"
+
+#. module: partner_agent
+#: model:product.price.type,name:partner_agent.com_price
+#: model:product.pricelist.type,name:partner_agent.pricelist_type_com
+msgid "Commissioning Price"
+msgstr "Prix du Commissionnement"
+
+#. module: partner_agent
+#: field:res.partner,pricelist_com_id:0
+msgid "Commissioning Pricelist"
+msgstr "Liste de prix de commissionnement"
+
+#. module: partner_agent
+#: field:account.invoice,com:0
+msgid "Commissioning Supplier Invoice"
+msgstr "Facture de commissionnement"
+
+#. module: partner_agent
+#: view:res.partner:0
+msgid "Commissionning"
+msgstr "Commissionnement"
+
+#. module: partner_agent
+#: model:product.pricelist,name:partner_agent.com0
+msgid "Commissionning Pricelist"
+msgstr "Liste de prix de commissionnement"
+
+#. module: partner_agent
+#: view:res.partner:0
+#: field:res.partner,partner_ids:0
+msgid "Customers"
+msgstr "Clients"
+
+#. module: partner_agent
+#: code:addons/partner_agent/agent.py:316
+#, python-format
+msgid "Don't forget to unlink all the partner to this representant.\n"
+""
+msgstr "N'oubliez pas de supprimer les liens entre les partenaires et ce repésentant.\n"
+""
+
+#. module: partner_agent
+#: view:res.partner:0
+msgid "Evaluation"
+msgstr "Evaluation"
+
+#. module: partner_agent
+#: field:res.partner,fsc:0
+msgid "FSC"
+msgstr "FSC"
+
+#. module: partner_agent
+#: view:res.partner:0
+msgid "History"
+msgstr "Historique"
+
+#. module: partner_agent
+#: help:account.invoice,com:0
+msgid "If checked, the amount of this invoice will be subtract to the partner commissioning"
+msgstr "Si cochée, le montant de cette facture sera soustrait au montant de commissionnement du partenaire"
+
+#. module: partner_agent
+#: help:res.partner,blocage:0
+msgid "If checked, the supplier will not be took in the automatic payement"
+msgstr "Si coché, le fournisseur ne sera pas repris dans les paiements automatiques"
+
+#. module: partner_agent
+#: model:ir.model,name:partner_agent.model_account_invoice
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: partner_agent
+#: view:res.partner:0
+#: field:res.partner,invoice_ids2:0
+#: field:res.partner,invoice_rep_ids:0
+msgid "Invoices"
+msgstr "Factures"
+
+#. module: partner_agent
+#: field:res.partner,invoicing_address:0
+msgid "Invoicing Address"
+msgstr "Adresse de facturation"
+
+#. module: partner_agent
+#: field:res.partner,moy_invoice_ids2:0
+msgid "Moyenne"
+msgstr "Moyenne"
+
+#. module: partner_agent
+#: model:ir.model,name:partner_agent.model_res_partner
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: partner_agent
+#: model:ir.model,name:partner_agent.model_product_pricelist
+msgid "Pricelist"
+msgstr "Liste de prix"
+
+#. module: partner_agent
+#: model:ir.model,name:partner_agent.model_product_product
+msgid "Product"
+msgstr "Article"
+
+#. module: partner_agent
+#: sql_constraint:res.partner:0
+msgid "Reference must be unique!"
+msgstr "La référence existe déjà!"
+
+#. module: partner_agent
+#: field:account.invoice,representant_id:0
+#: view:res.partner:0
+#: field:res.partner,is_representant:0
+#: field:res.partner,representant:0
+msgid "Representative"
+msgstr "Représentant"
+
+#. module: partner_agent
+#: field:res.partner,so_lines:0
+msgid "Sale Order Lines"
+msgstr "Lignes de ventes"
+
+#. module: partner_agent
+#: model:ir.model,name:partner_agent.model_sale_order
+msgid "Sales Order"
+msgstr "Commande de vente"
+
+#. module: partner_agent
+#: view:res.partner:0
+msgid "Sales Order Lines"
+msgstr "Lignes de vente"
+
+#. module: partner_agent
+#: view:account.invoice:0
+#: view:res.partner:0
+msgid "Supplier"
+msgstr "Fournisseur"
+
+#. module: partner_agent
+#: model:product.pricelist.version,name:partner_agent.v1
+msgid "Version of  default commissionning pricelist line"
+msgstr "Version de la liste de prix de commissionnement par défaut"
+
+#. module: partner_agent
+#: code:addons/partner_agent/agent.py:315
+#, python-format
+msgid "Warning !"
+msgstr "Attention !"
+
+#. module: partner_agent
+#: code:addons/partner_agent/agent.py:107
+#, python-format
+msgid "Warning!"
+msgstr "Attention!"
+
+#. module: partner_agent
+#: view:res.partner:0
+msgid "e.g. www.openerp.com"
+msgstr "ex. www.bhc.be"
+
+#. module: partner_agent
+#: field:res.partner,remarque_transport:0
+msgid "Rem. Delivery"
+msgstr "Rem. Transport"
+
+#. module: partner_agent
+#: view:res.partner:0
+msgid "Rem. Delivery..."
+msgstr "Rem. Transport..."
+
+#. module: partner_agent
+#: field:res.partner,deliver_id:0
+msgid "Deliver"
+msgstr "Transporteur"
+
+#. module: partner_agent
+#: constraint:res.partner:0
+msgid "The partner ref must be unique"
+msgstr "La référence du partenaire doit être unique"

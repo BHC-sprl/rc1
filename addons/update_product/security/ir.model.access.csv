@@ -1,0 +1,6 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+acces_product_farde,product.farde,model_product_farde,base.group_no_one,1,1,1,1
+acces_product_palettisation,product.palettisation,model_product_palettisation,base.group_user,1,1,1,1
+acces_product_palettisation_conf,product.palettisation,model_product_palettisation,access_right_pacarbel.group_menu_product,1,1,1,1
+access_product_sleeve,product.sleeve,model_product_sleeve,base.group_user,1,0,0,0
+access_product_sleeve_conf,product.sleeve,model_product_sleeve,access_right_pacarbel.group_menu_product,1,1,1,1

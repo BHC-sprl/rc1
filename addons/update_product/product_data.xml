@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+        <record id="product_uom_rouleau" model="product.uom">
+             <field name="name">Rouleau</field>            
+             <field name="category_id" ref="product.product_uom_categ_unit"/>
+             <field name="factor">1</field>
+             <field name="factor_inv" eval="1"/>             
+             <field name="uom_type">bigger</field>
+             
+         </record>
+        <record id="product_uom_paquet" model="product.uom">
+             <field name="name">paquet</field>            
+             <field name="category_id" ref="product.product_uom_categ_unit"/>
+             <field name="factor">1</field>
+             <field name="factor_inv" eval="1"/>             
+             <field name="uom_type">bigger</field>
+             
+         </record>        
+    </data>
+</openerp>
