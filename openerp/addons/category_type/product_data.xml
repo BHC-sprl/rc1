@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+        <record id="type_1" model="product.category.type">
+            <field name="name">Negoce</field>
+        </record>
+        <record id="type_2" model="product.category.type">
+            <field name="name">Matiere premiere</field>
+        </record>
+        <record id="type_3" model="product.category.type">
+            <field name="name">Semi-fini</field>
+        </record>
+        <record id="type_4" model="product.category.type">
+            <field name="name">Fini</field>
+        </record>                
+    </data>
+</openerp>

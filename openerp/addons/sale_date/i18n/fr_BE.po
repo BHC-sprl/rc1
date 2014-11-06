@@ -1,0 +1,834 @@
+﻿# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* sale_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-25 07:23+0000\n"
+"PO-Revision-Date: 2014-08-25 07:23+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_date
+#: model:email.template,report_name:sale_date.email_template_edi_sale_bhc
+msgid "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}"
+msgstr "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}"
+
+#. module: sale_date
+#: model:email.template,subject:sale_date.email_template_edi_sale_bhc
+msgid "${object.company_id.name} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })"
+msgstr "${object.company_id.name} ${object.state in ('draft', 'sent') and 'Devis' or 'Commande'} (Réf. ${object.name or 'n/a' })"
+
+#. module: sale_date
+#: model:email.template,subject:sale_date.email_template_edi_invoice_bhc
+msgid "${object.company_id.name} Invoice (Ref ${object.number or 'n/a' })"
+msgstr "${object.company_id.name} Facture (Ref ${object.number or 'n/a' })"
+
+#. module: sale_date
+#: model:email.template,body_html:sale_date.email_template_edi_invoice_bhc
+msgid "<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n"
+"\n"
+"    <p>Hello ${object.partner_id.name},</p>\n"
+"\n"
+"    <p>A new invoice is available for you: </p>\n"
+"    \n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"         <strong>REFERENCES</strong><br>\n"
+"         Invoice number: <strong>${object.number}</strong><br>\n"
+"         Invoice total: <strong>${object.amount_total} ${object.currency_id.name}</strong><br>\n"
+"         Invoice date: ${object.date_invoice}<br>\n"
+"       % if object.origin:\n"
+"         Order reference: ${object.origin}<br>\n"
+"       % endif\n"
+"       % if object.user_id:\n"
+"         Your contact: <a href=\"mailto:${object.user_id.email or ''}?subject=Invoice ${object.number}\">${object.user_id.name}</a>\n"
+"       % endif\n"
+"    </p>  \n"
+"    \n"
+"    % if signup_url:\n"
+"    <p>\n"
+"    You can access the invoice document and pay online via our Customer Portal:\n"
+"    </p>\n"
+"        <a style=\"display:block; width: 150px; height:20px; margin-left: 120px; color: #DDD; font-family: 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; text-align: center; text-decoration: none !important; line-height: 1; padding: 5px 0px 0px 0px; background-color: #8E0000; border-radius: 5px 5px; background-repeat: repeat no-repeat;\" href=\"${signup_url}\">View Invoice</a>\n"
+"    % endif\n"
+"    \n"
+"    % if object.paypal_url:\n"
+"    <br><p>It is also possible to directly pay with Paypal:</p>\n"
+"        <a style=\"margin-left: 120px;\" href=\"${object.paypal_url}\">\n"
+"            <img class=\"oe_edi_paypal_button\" src=\"https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif\"></a>\n"
+"    % endif\n"
+"    \n"
+"    <br><p>If you have any question, do not hesitate to contact us.</p>\n"
+"    <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>\n"
+"    <br><br><div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"            <strong style=\"text-transform:uppercase;\">${object.company_id.name}</strong></h3>\n"
+"    </div>\n"
+"    <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"        % if object.company_id.street:\n"
+"            ${object.company_id.street}<br>\n"
+"        % endif\n"
+"        % if object.company_id.street2:\n"
+"            ${object.company_id.street2}<br>\n"
+"        % endif\n"
+"        % if object.company_id.city or object.company_id.zip:\n"
+"            ${object.company_id.zip} ${object.company_id.city}<br>\n"
+"        % endif\n"
+"        % if object.company_id.country_id:\n"
+"            ${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br>\n"
+"        % endif\n"
+"        </span>\n"
+"        % if object.company_id.phone:\n"
+"            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                Phone:  ${object.company_id.phone}\n"
+"            </div>\n"
+"        % endif\n"
+"        % if object.company_id.website:\n"
+"            <div>\n"
+"                Web : <a href=\"${object.company_id.website}\">${object.company_id.website}</a>\n"
+"            </div>\n"
+"        % endif\n"
+"        <p></p>\n"
+"    </div>\n"
+"</div>"
+msgstr "<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n"
+"\n"
+"    <p>Hello ${object.partner_id.name},</p>\n"
+"\n"
+"    <p>A new invoice is available for you: </p>\n"
+"    \n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"         <strong>REFERENCES</strong><br>\n"
+"         Invoice number: <strong>${object.number}</strong><br>\n"
+"         Invoice total: <strong>${object.amount_total} ${object.currency_id.name}</strong><br>\n"
+"         Invoice date: ${object.date_invoice}<br>\n"
+"       % if object.origin:\n"
+"         Order reference: ${object.origin}<br>\n"
+"       % endif\n"
+"       % if object.user_id:\n"
+"         Your contact: <a href=\"mailto:${object.user_id.email or ''}?subject=Invoice ${object.number}\">${object.user_id.name}</a>\n"
+"       % endif\n"
+"    </p>  \n"
+"    \n"
+"    % if signup_url:\n"
+"    <p>\n"
+"    You can access the invoice document and pay online via our Customer Portal:\n"
+"    </p>\n"
+"        <a style=\"display:block; width: 150px; height:20px; margin-left: 120px; color: #DDD; font-family: 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; text-align: center; text-decoration: none !important; line-height: 1; padding: 5px 0px 0px 0px; background-color: #8E0000; border-radius: 5px 5px; background-repeat: repeat no-repeat;\" href=\"${signup_url}\">View Invoice</a>\n"
+"    % endif\n"
+"    \n"
+"    % if object.paypal_url:\n"
+"    <br><p>It is also possible to directly pay with Paypal:</p>\n"
+"        <a style=\"margin-left: 120px;\" href=\"${object.paypal_url}\">\n"
+"            <img class=\"oe_edi_paypal_button\" src=\"https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif\"></a>\n"
+"    % endif\n"
+"    \n"
+"    <br><p>If you have any question, do not hesitate to contact us.</p>\n"
+"    <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>\n"
+"    <br><br><div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"            <strong style=\"text-transform:uppercase;\">${object.company_id.name}</strong></h3>\n"
+"    </div>\n"
+"    <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"        % if object.company_id.street:\n"
+"            ${object.company_id.street}<br>\n"
+"        % endif\n"
+"        % if object.company_id.street2:\n"
+"            ${object.company_id.street2}<br>\n"
+"        % endif\n"
+"        % if object.company_id.city or object.company_id.zip:\n"
+"            ${object.company_id.zip} ${object.company_id.city}<br>\n"
+"        % endif\n"
+"        % if object.company_id.country_id:\n"
+"            ${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br>\n"
+"        % endif\n"
+"        </span>\n"
+"        % if object.company_id.phone:\n"
+"            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                Phone:  ${object.company_id.phone}\n"
+"            </div>\n"
+"        % endif\n"
+"        % if object.company_id.website:\n"
+"            <div>\n"
+"                Web : <a href=\"${object.company_id.website}\">${object.company_id.website}</a>\n"
+"            </div>\n"
+"        % endif\n"
+"        <p></p>\n"
+"    </div>\n"
+"</div>"
+
+#. module: sale_date
+#: model:email.template,body_html:sale_date.email_template_edi_sale_bhc
+msgid "<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n"
+"\n"
+"    <p>Hello ${object.partner_id.name},</p>                                                                                                                                                                                                  \n"
+"    \n"
+"    <p>Here is your ${object.state in ('draft', 'sent') and 'quotation' or 'order confirmation'} from ${object.company_id.name}: </p>\n"
+"\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"         <strong>REFERENCES</strong><br>\n"
+"         Order number: <strong>${object.name}</strong><br>\n"
+"         Order total: <strong>${object.amount_total} ${object.pricelist_id.currency_id.name}</strong><br>\n"
+"         Order date: ${object.date_order}<br>\n"
+"       % if object.origin:\n"
+"         Order reference: ${object.origin}<br>\n"
+"       % endif\n"
+"       % if object.client_order_ref:\n"
+"         Your reference: ${object.client_order_ref}<br>\n"
+"       % endif\n"
+"       % if object.user_id:\n"
+"         Your contact: <a href=\"mailto:${object.user_id.email or ''}?subject=Order ${object.name}\">${object.user_id.name}</a>\n"
+"       % endif\n"
+"    </p>\n"
+"\n"
+"    \n"
+"    % if signup_url:\n"
+"    <p>\n"
+"    You can access this document and pay online via our Customer Portal:\n"
+"    </p>\n"
+"        <a style=\"display:block; width: 150px; height:20px; margin-left: 120px; color: #DDD; font-family: 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; text-align: center; text-decoration: none !important; line-height: 1; padding: 5px 0px 0px 0px; background-color: #8E0000; border-radius: 5px 5px; background-repeat: repeat no-repeat;\" href=\"${signup_url}\">View ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'}</a>\n"
+"    % endif\n"
+"\n"
+"    % if object.paypal_url:\n"
+"    <br><p>It is also possible to directly pay with Paypal:</p>\n"
+"        <a style=\"margin-left: 120px;\" href=\"${object.paypal_url}\">\n"
+"            <img class=\"oe_edi_paypal_button\" src=\"https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif\"></a>\n"
+"    % endif\n"
+"\n"
+"    <br><p>If you have any question, do not hesitate to contact us.</p>\n"
+"    <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>\n"
+"    <br><br><div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"            <strong style=\"text-transform:uppercase;\">${object.company_id.name}</strong></h3>\n"
+"    </div>\n"
+"                <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"        % if object.company_id.street:\n"
+"            ${object.company_id.street}<br>\n"
+"        % endif\n"
+"        % if object.company_id.street2:\n"
+"            ${object.company_id.street2}<br>\n"
+"        % endif\n"
+"        % if object.company_id.city or object.company_id.zip:\n"
+"            ${object.company_id.zip} ${object.company_id.city}<br>\n"
+"        % endif\n"
+"        % if object.company_id.country_id:\n"
+"            ${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br>\n"
+"        % endif\n"
+"        </span>\n"
+"        % if object.company_id.phone:\n"
+"            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                Phone:  ${object.company_id.phone}\n"
+"            </div>\n"
+"        % endif\n"
+"        % if object.company_id.website:\n"
+"            <div>\n"
+"                Web : <a href=\"${object.company_id.website}\">${object.company_id.website}</a>\n"
+"            </div>\n"
+"        % endif\n"
+"        <p></p>\n"
+"    </div>\n"
+"</div>"
+msgstr "<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n"
+"\n"
+"    <p>Hello ${object.partner_id.name},</p>                                                                                                                                                                                                  \n"
+"    \n"
+"    <p>Here is your ${object.state in ('draft', 'sent') and 'quotation' or 'order confirmation'} from ${object.company_id.name}: </p>\n"
+"\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"         <strong>REFERENCES</strong><br>\n"
+"         Order number: <strong>${object.name}</strong><br>\n"
+"         Order total: <strong>${object.amount_total} ${object.pricelist_id.currency_id.name}</strong><br>\n"
+"         Order date: ${object.date_order}<br>\n"
+"       % if object.origin:\n"
+"         Order reference: ${object.origin}<br>\n"
+"       % endif\n"
+"       % if object.client_order_ref:\n"
+"         Your reference: ${object.client_order_ref}<br>\n"
+"       % endif\n"
+"       % if object.user_id:\n"
+"         Your contact: <a href=\"mailto:${object.user_id.email or ''}?subject=Order ${object.name}\">${object.user_id.name}</a>\n"
+"       % endif\n"
+"    </p>\n"
+"\n"
+"    \n"
+"    % if signup_url:\n"
+"    <p>\n"
+"    You can access this document and pay online via our Customer Portal:\n"
+"    </p>\n"
+"        <a style=\"display:block; width: 150px; height:20px; margin-left: 120px; color: #DDD; font-family: 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; text-align: center; text-decoration: none !important; line-height: 1; padding: 5px 0px 0px 0px; background-color: #8E0000; border-radius: 5px 5px; background-repeat: repeat no-repeat;\" href=\"${signup_url}\">View ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'}</a>\n"
+"    % endif\n"
+"\n"
+"    % if object.paypal_url:\n"
+"    <br><p>It is also possible to directly pay with Paypal:</p>\n"
+"        <a style=\"margin-left: 120px;\" href=\"${object.paypal_url}\">\n"
+"            <img class=\"oe_edi_paypal_button\" src=\"https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif\"></a>\n"
+"    % endif\n"
+"\n"
+"    <br><p>If you have any question, do not hesitate to contact us.</p>\n"
+"    <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>\n"
+"    <br><br><div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"            <strong style=\"text-transform:uppercase;\">${object.company_id.name}</strong></h3>\n"
+"    </div>\n"
+"                <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"        % if object.company_id.street:\n"
+"            ${object.company_id.street}<br>\n"
+"        % endif\n"
+"        % if object.company_id.street2:\n"
+"            ${object.company_id.street2}<br>\n"
+"        % endif\n"
+"        % if object.company_id.city or object.company_id.zip:\n"
+"            ${object.company_id.zip} ${object.company_id.city}<br>\n"
+"        % endif\n"
+"        % if object.company_id.country_id:\n"
+"            ${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br>\n"
+"        % endif\n"
+"        </span>\n"
+"        % if object.company_id.phone:\n"
+"            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                Phone:  ${object.company_id.phone}\n"
+"            </div>\n"
+"        % endif\n"
+"        % if object.company_id.website:\n"
+"            <div>\n"
+"                Web : <a href=\"${object.company_id.website}\">${object.company_id.website}</a>\n"
+"            </div>\n"
+"        % endif\n"
+"        <p></p>\n"
+"    </div>\n"
+"</div>"
+
+#. module: sale_date
+#: view:False:0
+msgid "Amount"
+msgstr "Montant"
+
+#. module: sale_date
+#: field:sale.order,city:0
+msgid "City"
+msgstr "Ville"
+
+#. module: sale_date
+#: view:False:0
+msgid "Col"
+msgstr "Col"
+
+#. module: sale_date
+#: field:sale.order,country:0
+msgid "Country"
+msgstr "Pays"
+
+#. module: sale_date
+#: field:customer.to.palette,create_uid:0
+#: field:palette.to.product,create_uid:0
+#: field:pricelist.updater,create_uid:0
+#: field:pricelist.updater.line,create_uid:0
+#: field:product.to.palette,create_uid:0
+#: field:sale.order.line.date,create_uid:0
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: sale_date
+#: field:customer.to.palette,create_date:0
+#: field:palette.to.product,create_date:0
+#: field:pricelist.updater,create_date:0
+#: field:pricelist.updater.line,create_date:0
+#: field:product.to.palette,create_date:0
+#: field:sale.order.line.date,create_date:0
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: sale_date
+#: field:sale.order,credit:0
+msgid "Credit"
+msgstr "Crédit"
+
+#. module: sale_date
+#: field:sale.order,credit_limit:0
+msgid "Credit Limit"
+msgstr "Limit de crédit"
+
+#. module: sale_date
+#: code:addons/sale_date/sale.py:159
+#, python-format
+msgid "Credit Limit ! : "
+msgstr "Limite de crédit ! : "
+
+#. module: sale_date
+#: field:sale.order,credit_limit_pacarbel:0
+msgid "Credit Limit Pacarbel"
+msgstr "Limite de crédit Pacarbel"
+
+#. module: sale_date
+#: field:sale.order,credit_overdue:0
+msgid "Credit Overdue"
+msgstr "Crédit en souffrance"
+
+#. module: sale_date
+#: view:customer.to.palette:0
+msgid "Customer"
+msgstr "Client"
+
+#. module: sale_date
+#: field:sale.order,deliver_id:0
+msgid "Deliver"
+msgstr "Transporteur"
+
+#. module: sale_date
+#: view:sale.order:0
+msgid "Delivery Information"
+msgstr "Information de livraison"
+
+#. module: sale_date
+#: field:sale.order.line,pds_delivery:0
+msgid "Delivery Weight"
+msgstr "Poids de la livraison"
+
+#. module: sale_date
+#: view:False:0
+msgid "Description"
+msgstr "Description"
+
+#. module: sale_date
+#: field:sale.order,desired_time:0
+#: field:sale.order.line,desired_time:0
+msgid "Desired Time"
+msgstr "Date souhaitée"
+
+#. module: sale_date
+#: view:False:0
+msgid "Disc.(%)"
+msgstr "Disc.(%)"
+
+#. module: sale_date
+#: view:sale.order:0
+msgid "Discount"
+msgstr "Discount"
+
+#. module: sale_date
+#: field:product.to.palette,discount:0
+msgid "Discount (%)"
+msgstr "Discount (%)"
+
+#. module: sale_date
+#: model:ir.actions.act_window,name:sale_date.action_customer_to_palette
+#: model:ir.ui.menu,name:sale_date.menu_customer_to_palette
+msgid "Discount On Palette"
+msgstr "Discount sur Palette"
+
+#. module: sale_date
+#: view:customer.to.palette:0
+msgid "Discount on Palette"
+msgstr "Discount sur Palette"
+
+#. module: sale_date
+#: code:addons/sale_date/sale.py:230
+#, python-format
+msgid "Error !"
+msgstr "Erreur !"
+
+#. module: sale_date
+#: code:addons/sale_date/sale.py:163
+#, python-format
+msgid "Error!"
+msgstr "Erreur!"
+
+#. module: sale_date
+#: field:customer.to.palette,id:0
+#: field:palette.to.product,id:0
+#: field:pricelist.updater,id:0
+#: field:pricelist.updater.line,id:0
+#: field:product.to.palette,id:0
+#: field:sale.order.line.date,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: sale_date
+#: field:pricelist.updater.line,purcent_inking:0
+msgid "Inking %"
+msgstr "Encrage %"
+
+#. module: sale_date
+#: model:email.template,report_name:sale_date.email_template_edi_invoice_bhc
+msgid "Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}"
+msgstr "Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}"
+
+#. module: sale_date
+#: view:False:0
+msgid "Item Nr"
+msgstr "Item Nr"
+
+#. module: sale_date
+#: field:customer.to.palette,write_uid:0
+#: field:palette.to.product,write_uid:0
+#: field:pricelist.updater,write_uid:0
+#: field:pricelist.updater.line,write_uid:0
+#: field:product.to.palette,write_uid:0
+#: field:sale.order.line.date,write_uid:0
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: sale_date
+#: field:customer.to.palette,write_date:0
+#: field:palette.to.product,write_date:0
+#: field:pricelist.updater,write_date:0
+#: field:pricelist.updater.line,write_date:0
+#: field:product.to.palette,write_date:0
+#: field:sale.order.line.date,write_date:0
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: sale_date
+#: view:pricelist.updater:0
+msgid "Launch"
+msgstr "Lancer"
+
+#. module: sale_date
+#: field:pricelist.updater.line,lenght:0
+msgid "Lenght"
+msgstr "Longueur"
+
+#. module: sale_date
+#: view:pricelist.updater:0
+#: field:pricelist.updater,updater_line:0
+msgid "Line"
+msgstr "Ligne"
+
+#. module: sale_date
+#: field:sale.order,loading_date:0
+msgid "Loading Date"
+msgstr "Date de chargement"
+
+#. module: sale_date
+#: field:sale.order.line,loading_date_confirmed:0
+msgid "Loading Date Confirmed"
+msgstr "Date de chargement confirmée"
+
+#. module: sale_date
+#: field:palette.to.product,name:0
+#: view:pricelist.updater:0
+#: field:pricelist.updater,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: sale_date
+#: field:palette.to.product,max:0
+msgid "Number of Palette Max"
+msgstr "Nombre de palette Max"
+
+#. module: sale_date
+#: field:palette.to.product,min:0
+msgid "Number of Palette Min"
+msgstr "Nombre de palette Min"
+
+#. module: sale_date
+#: field:pricelist.updater.line,nbr_color:0
+msgid "Number of color"
+msgstr "Nombre de couleur"
+
+#. module: sale_date
+#: view:sale.order:0
+msgid "Order Loading Date"
+msgstr "Date de chargement de la commande"
+
+#. module: sale_date
+#: view:sale.order:0
+msgid "Order Month"
+msgstr "Mois de la commande"
+
+#. module: sale_date
+#: help:sale.order,order_amount:0
+msgid "Order confirmed and not done"
+msgstr "Commande confirmée mais pas terminée"
+
+#. module: sale_date
+#: model:ir.actions.act_window,name:sale_date.action_orders_to_deliver2
+#: model:ir.ui.menu,name:sale_date.menu_orders_to_deliver
+msgid "Order to Deliver"
+msgstr "Commande à livrer"
+
+#. module: sale_date
+#: code:addons/sale_date/sale.py:153
+#, python-format
+msgid "Pacarbel Credit Limit ! : "
+msgstr "Limite de crédit Pacarble ! : "
+
+#. module: sale_date
+#: view:customer.to.palette:0
+#: field:customer.to.palette,palettes_ids:0
+#: field:product.to.palette,product_to_pal_id:0
+msgid "Palette"
+msgstr "Palette"
+
+#. module: sale_date
+#: view:sale.order:0
+#: field:sale.order.line,partial_loading_date_ids:0
+#: field:sale.order.line.date,name:0
+#: field:sale.order.line.date,partial_loading_date_id:0
+msgid "Partial Loading Date"
+msgstr "Date de chargement partielle"
+
+#. module: sale_date
+#: field:customer.to.palette,name:0
+#: field:palette.to.product,customer_to_pal_id:0
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: sale_date
+#: field:pricelist.updater.line,price:0
+msgid "Price"
+msgstr "Prix"
+
+#. module: sale_date
+#: model:ir.actions.act_window,name:sale_date.action_pricelist_updater
+#: model:ir.ui.menu,name:sale_date.menu_pricelist_updater
+#: view:pricelist.updater:0
+msgid "Price List Updater"
+msgstr "Mise à jour des listes de prix"
+
+#. module: sale_date
+#: field:pricelist.updater,version_pricelist:0
+msgid "PriceList Version"
+msgstr "Version de liste de prix"
+
+#. module: sale_date
+#: field:pricelist.updater,pricelist:0
+msgid "Pricelist"
+msgstr "Liste de prix"
+
+#. module: sale_date
+#: view:customer.to.palette:0
+#: field:palette.to.product,product_ids:0
+#: field:pricelist.updater.line,name:0
+#: field:product.to.palette,name:0
+msgid "Product"
+msgstr "Produit"
+
+#. module: sale_date
+#: field:sale.order.line,qty_in_stock:0
+msgid "Qty in stock"
+msgstr "Qté en stock"
+
+#. module: sale_date
+#: view:False:0
+msgid "Quant."
+msgstr "Quant."
+
+#. module: sale_date
+#: field:pricelist.updater.line,qty:0
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: sale_date
+#: view:sale.order:0
+msgid "Quotation Number"
+msgstr "N° de l'offre"
+
+#. module: sale_date
+#: model:ir.model,name:sale_date.model_sale_order
+msgid "Sales Order"
+msgstr "Commande de vente"
+
+#. module: sale_date
+#: model:ir.model,name:sale_date.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de commande de vente"
+
+#. module: sale_date
+#: view:customer.to.palette:0
+msgid "Search Discount On Palette"
+msgstr "Recharche réduction sur Palette"
+
+#. module: sale_date
+#: view:pricelist.updater:0
+msgid "Search Price List Updater"
+msgstr "Recherche de mise à jour sur liste de prix"
+
+#. module: sale_date
+#: view:False:0
+msgid "Texte à mettre en rouge et en gras"
+msgstr "Texte à mettre en rouge et en gras"
+
+#. module: sale_date
+#: code:addons/sale_date/sale.py:152
+#, python-format
+msgid "The Pacarbel credit limit is over"
+msgstr "La limite de crédit Pacarbel est dépassée"
+
+#. module: sale_date
+#: code:addons/sale_date/sale.py:158
+#, python-format
+msgid "The credit limit is over"
+msgstr "La limite de crédit est dépassée"
+
+#. module: sale_date
+#: field:sale.order,order_all:0
+msgid "Total"
+msgstr "Total"
+
+#. module: sale_date
+#: field:sale.order,order_amount:0
+msgid "Total Current Orders"
+msgstr "Total commande actuelle"
+
+#. module: sale_date
+#: field:sale.order,ttl_palette:0
+msgid "Total Palette"
+msgstr "Total Palette"
+
+#. module: sale_date
+#: field:sale.order,pds_brut_ttl:0
+msgid "Total Poids Brut"
+msgstr "Total Poids Brut"
+
+#. module: sale_date
+#: field:sale.order,pds_net_ttl:0
+msgid "Total Poids Net"
+msgstr "Total Poids Net"
+
+#. module: sale_date
+#: field:sale.order.line,pds_ttl:0
+msgid "Total Weight"
+msgstr "Total Poids"
+
+#. module: sale_date
+#: help:sale.order,order_all:0
+msgid "Total receivable + Total current orders"
+msgstr "Total à recevoir + Total commande actuelle"
+
+#. module: sale_date
+#: view:False:0
+msgid "Un"
+msgstr "Un"
+
+#. module: sale_date
+#: view:False:0
+msgid "Un. P."
+msgstr "Un. P."
+
+#. module: sale_date
+#: field:pricelist.updater.line,pricelist_updater_id:0
+msgid "Updater"
+msgstr "Mise à jour"
+
+#. module: sale_date
+#: view:False:0
+msgid "Vat"
+msgstr "Tva"
+
+#. module: sale_date
+#: field:sale.order,website_message_ids:0
+msgid "Website Messages"
+msgstr "Website Messages"
+
+#. module: sale_date
+#: help:sale.order,website_message_ids:0
+msgid "Website communication history"
+msgstr "Website communication history"
+
+#. module: sale_date
+#: field:pricelist.updater.line,width:0
+msgid "Width"
+msgstr "Largeur"
+
+#. module: sale_date
+#: code:addons/sale_date/sale.py:230
+#, python-format
+msgid "You can have only one configuration per customer"
+msgstr "Vous ne pouvez avoir qu'une configuration par client"
+
+#. module: sale_date
+#: constraint:palette.to.product:0
+msgid "You cannot have 2 Discount that overlap!"
+msgstr "Vous ne pouvez pas avoir 2 réduction qui se chevauchent!"
+
+#. module: sale_date
+#: view:False:0
+msgid "body {\n"
+"        color: #000 !important;\n"
+"    }\n"
+"    .border-black td {\n"
+"        border-top: 1px solid black !important;\n"
+"    }\n"
+"    .table-condensed > thead > tr > th {\n"
+"        border-bottom: 1px solid black !important;\n"
+"        border-top: 1px solid black !important;        \n"
+"    }\n"
+"    .zero_min_height {\n"
+"        min-height: 0px !important;\n"
+"    }\n"
+"    \n"
+"    B.rouge {font: Verdana 12px; color: #FF0000; }"
+msgstr "body {\n"
+"        color: #000 !important;\n"
+"    }\n"
+"    .border-black td {\n"
+"        border-top: 1px solid black !important;\n"
+"    }\n"
+"    .table-condensed > thead > tr > th {\n"
+"        border-bottom: 1px solid black !important;\n"
+"        border-top: 1px solid black !important;        \n"
+"    }\n"
+"    .zero_min_height {\n"
+"        min-height: 0px !important;\n"
+"    }\n"
+"    \n"
+"    B.rouge {font: Verdana 12px; color: #FF0000; }"
+
+#. module: sale_date
+#: model:ir.model,name:sale_date.model_customer_to_palette
+msgid "customer.to.palette"
+msgstr "customer.to.palette"
+
+#. module: sale_date
+#: model:ir.model,name:sale_date.model_palette_to_product
+msgid "palette.to.product"
+msgstr "palette.to.product"
+
+#. module: sale_date
+#: model:ir.model,name:sale_date.model_pricelist_updater
+msgid "pricelist.updater"
+msgstr "pricelist.updater"
+
+#. module: sale_date
+#: model:ir.model,name:sale_date.model_pricelist_updater_line
+msgid "pricelist.updater.line"
+msgstr "pricelist.updater.line"
+
+#. module: sale_date
+#: model:ir.model,name:sale_date.model_product_to_palette
+msgid "product.to.palette"
+msgstr "product.to.palette"
+
+#. module: sale_date
+#: model:ir.model,name:sale_date.model_sale_order_line_date
+msgid "sale.order.line.date"
+msgstr "sale.order.line.date"
+
+#. module: sale_date
+#: view:sale.order:0
+#: field:sale.order,city:0
+msgid "City"
+msgstr "Ville"
+
+#. module: sale_date
+#: view:sale.order:0
+#: field:sale.order,country:0
+msgid "Country"
+msgstr "Pays"
+
+#. module: sale_date
+#: view:sale.order:0
+#: field:sale.order,deliver_id:0
+msgid "Deliver"
+msgstr "Transporteur"

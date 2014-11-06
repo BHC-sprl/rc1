@@ -1,0 +1,165 @@
+﻿# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* supplier_evaluation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 8.0dev-20140416-230101\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-13 08:11+0000\n"
+"PO-Revision-Date: 2014-05-13 08:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: supplier_evaluation
+#: model:supplier.evaluation.configuration,name:supplier_evaluation.supplier_evaluation_configuration_9
+msgid "After sales service"
+msgstr "Service après vente"
+
+#. module: supplier_evaluation
+#: model:supplier.evaluation.configuration,name:supplier_evaluation.supplier_evaluation_configuration_8
+msgid "Compliance with the conditions announced"
+msgstr "Respect des conditions annoncées"
+
+#. module: supplier_evaluation
+#: field:supplier.evaluation,config_id:0
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: supplier_evaluation
+#: field:supplier.evaluation,cote:0
+msgid "Cote"
+msgstr "Cote"
+
+#. module: supplier_evaluation
+#: code:addons/supplier_evaluation/supplier_evaluation.py:48
+#: code:addons/supplier_evaluation/supplier_evaluation.py:53
+#, python-format
+msgid "Error!"
+msgstr "Erreur!"
+
+#. module: supplier_evaluation
+#: view:account.invoice:0
+#: field:account.invoice,evaluation_ids:0
+#: model:ir.actions.act_window,name:supplier_evaluation.action_supplier_evaluation_tree
+#: model:ir.ui.menu,name:supplier_evaluation.menu_action_supplier_evaluation_tree_view
+#: field:supplier.evaluation,invoice_id:0
+msgid "Evaluation"
+msgstr "Evaluation"
+
+#. module: supplier_evaluation
+#: model:supplier.evaluation.configuration,name:supplier_evaluation.supplier_evaluation_configuration_10
+msgid "Flexibility in the implementation period of price change"
+msgstr "Souplesse dans le délai d'application de variation des prix"
+
+#. module: supplier_evaluation
+#: view:supplier.evaluation.configuration:0
+msgid "Group By..."
+msgstr "Grouper Par..."
+
+#. module: supplier_evaluation
+#: model:ir.model,name:supplier_evaluation.model_account_invoice
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: supplier_evaluation
+#: model:supplier.evaluation.configuration,name:supplier_evaluation.supplier_evaluation_configuration_6
+msgid "Level of support in R&D and technical support"
+msgstr "Niveau d'assistance dans la R&D et le support technique"
+
+#. module: supplier_evaluation
+#: field:supplier.evaluation,ttl_line:0
+msgid "Line Total"
+msgstr "Total de la ligne"
+
+#. module: supplier_evaluation
+#: field:supplier.evaluation,name:0
+#: view:supplier.evaluation.configuration:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: supplier_evaluation
+#: model:supplier.evaluation.configuration,name:supplier_evaluation.supplier_evaluation_configuration_5
+msgid "Overall financial situation"
+msgstr "Situation financière générale"
+
+#. module: supplier_evaluation
+#: model:supplier.evaluation.configuration,name:supplier_evaluation.supplier_evaluation_configuration_2
+msgid "Overall quality, product compliance, claims"
+msgstr "Qualité globale, conformité des produits, réclamations"
+
+#. module: supplier_evaluation
+#: field:supplier.evaluation,ponderation:0
+#: view:supplier.evaluation.configuration:0
+#: field:supplier.evaluation.configuration,ponderation:0
+msgid "Ponderation"
+msgstr "Ponderation"
+
+#. module: supplier_evaluation
+#: model:supplier.evaluation.configuration,name:supplier_evaluation.supplier_evaluation_configuration_3
+msgid "Price competitiveness"
+msgstr "Compétitivité des prix"
+
+#. module: supplier_evaluation
+#: model:supplier.evaluation.configuration,name:supplier_evaluation.supplier_evaluation_configuration_4
+msgid "Quality of service provided"
+msgstr "Qualité du service fourni"
+
+#. module: supplier_evaluation
+#: model:supplier.evaluation.configuration,name:supplier_evaluation.supplier_evaluation_configuration_7
+msgid "Reactivity"
+msgstr "Réactivité"
+
+#. module: supplier_evaluation
+#: model:supplier.evaluation.configuration,name:supplier_evaluation.supplier_evaluation_configuration_1
+msgid "Respect Delivery Delay"
+msgstr "Respect des délais de livraison"
+
+#. module: supplier_evaluation
+#: field:supplier.evaluation.configuration,name:0
+msgid "Rule"
+msgstr "Régle"
+
+#. module: supplier_evaluation
+#: view:supplier.evaluation.configuration:0
+msgid "Search Evaluation"
+msgstr "Recherche Evaluation"
+
+#. module: supplier_evaluation
+#: view:supplier.evaluation.configuration:0
+msgid "Supplier Evaluation"
+msgstr "Evaluation des fournisseurs"
+
+#. module: supplier_evaluation
+#: code:addons/supplier_evaluation/supplier_evaluation.py:49
+#: code:addons/supplier_evaluation/supplier_evaluation.py:54
+#, python-format
+msgid "The cote must be between 1 and 4.\n"
+""
+msgstr "La cote doit être entre 1 et 4.\n"
+""
+
+#. module: supplier_evaluation
+#: view:account.invoice:0
+msgid "Total"
+msgstr "Total"
+
+#. module: supplier_evaluation
+#: field:account.invoice,ttl_evaluation:0
+msgid "Total Evaluation"
+msgstr "Total Evaluation"
+
+#. module: supplier_evaluation
+#: model:ir.model,name:supplier_evaluation.model_supplier_evaluation
+msgid "supplier.evaluation"
+msgstr "supplier.evaluation"
+
+#. module: supplier_evaluation
+#: model:ir.model,name:supplier_evaluation.model_supplier_evaluation_configuration
+msgid "supplier.evaluation.configuration"
+msgstr "supplier.evaluation.configuration"
+

@@ -1,0 +1,9 @@
+1) Impossible d'importer les categories du fichier dans la fiche partenaire si le fichier d'import pour les catégories n'a pas été importé avant.
+2) Impossible d'importer les titres du fichier  dans la fiche partenaire si le fichier d'import pour les titres n'a pas été importé avant.
+3) Phone, il serait peut être intéressant de tous les formater avant l'import
+4) Impossible d'importer les conditions de paiement (client et fournisseur) dans la fiche partenaire si le fichier d'import pour les conditions de paiement n'a pas été importé avant.
+5) Le champ Address_type n'est plus présent dans le fichier que vous avez renvoyé
+6) Les comptes présent dans les colonnes account_receivable et account_payable ne sont pas des codes par défaut. Nous devrons donc importer ces comptes comptables avant de pouvour importer ces colonnes.
+7) La ligne ayant le num 84 n'a pas pu être importée car le num de TVA est incorrecte
+8) La ligne ayant le num 206 n'a pas pu être importée car le num de TVA est incorrecte   
+9) Les partenaires existant déjà n'ont pas été mis à jour (si le ref existait déjà)

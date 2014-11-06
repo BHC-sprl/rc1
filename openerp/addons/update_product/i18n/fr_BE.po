@@ -1,0 +1,813 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* update_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-16 11:50+0000\n"
+"PO-Revision-Date: 2014-10-16 11:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: update_product
+#: field:product.product,purcent_inking:0
+msgid "% Inking"
+msgstr "% Encrage"
+
+#. module: update_product
+#: view:product.template:0
+msgid "- Customer order Reserved"
+msgstr "- Réservé commande client"
+
+#. module: update_product
+#: view:product.product:0
+msgid "- Customer order Reserved"
+msgstr "- Réservé commande client"
+
+#. module: update_product
+#: view:product.template:0
+msgid "- Manufacturing Reserved"
+msgstr "- Réservé Fabrication"
+
+#. module: update_product
+#: view:product.product:0
+msgid "- Manufacturing Reserved"
+msgstr "- Réservé Fabrication"
+
+#. module: update_product
+#: model:ir.actions.act_window,help:update_product.product_normal_action_mrp
+#: model:ir.actions.act_window,help:update_product.product_normal_action_purchase
+#: model:ir.actions.act_window,help:update_product.product_normal_action_stock
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to define a new product.\n"
+"              </p><p>\n"
+"                You must define a product for everything you sell, whether it's\n"
+"                a physical product, a consumable or a service you offer to\n"
+"                customers.\n"
+"              </p><p>\n"
+"                The product form contains information to simplify the sale\n"
+"                process: price, notes in the quotation, accounting data,\n"
+"                procurement methods, etc.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Cliquez pour créer un nouvel article.\n"
+"              </p><p>\n"
+"                Vous devez créer un article pour tout ce que vous vendez, que ce\n"
+"                soit un produit physique, un consommable, ou un service proposé aux\n"
+"                clients.\n"
+"              </p><p>\n"
+"                Les informations du formulaire d'édition d'un article permettent de\n"
+"                simplifier le processus de vente, en indiquant le prix, des informations\n"
+"                dans les devis, les données comptables, les modes d'approvisionnement,\n"
+"                etc.\n"
+"              </p>\n"
+"            "
+
+#. module: update_product
+#: view:product.template:0
+msgid "= Available Stock"
+msgstr "= Stock Disponible"
+
+#. module: update_product
+#: view:product.product:0
+msgid "= Available Stock"
+msgstr "= Stock Disponible"
+
+
+#. module: update_product
+#: model:ir.ui.menu,name:update_product.menu_mrp_configuration_product
+msgid "Articles - accessoires"
+msgstr "Articles - accessoires"
+
+#. module: update_product
+#: field:product.product,christmaes_product:0
+msgid "Christmaes"
+msgstr "Article Noël"
+
+#. module: update_product
+#: view:product.farde:0
+#: field:product.farde,code:0
+msgid "Code"
+msgstr "Code"
+
+#. module: update_product
+#: model:ir.ui.menu,name:update_product.menu_product_ean13_action_form_mrp
+msgid "Code EAN"
+msgstr "Code EAN"
+
+#. module: update_product
+#: field:product.product,dep_gaillette_colis:0
+#: field:product.template,dep_gaillette_colis:0
+msgid "Colis Dep. Gaillette"
+msgstr "Colis Départ"
+
+#. module: update_product
+#: field:product.product,qty_production_colis:0
+#: field:product.template,qty_production_colis:0
+msgid "Colis In Production"
+msgstr "Colis En Fabrication"
+
+#. module: update_product
+#: field:product.product,incoming_qty_colis:0
+#: field:product.template,incoming_qty_colis:0
+msgid "Colis Incoming"
+msgstr "Colis en commande fournisseur"
+
+#. module: update_product
+#: field:product.product,oncallqty_colis:0
+#: field:product.template,oncallqty_colis:0
+msgid "Colis On call"
+msgstr "Colis En appel"
+
+#. module: update_product
+#: field:product.product,outgoing_qty_colis:0
+#: field:product.template,outgoing_qty_colis:0
+msgid "Colis Outgoing"
+msgstr "Colis réservé client"
+
+#. module: update_product
+#: field:product.product,qty_available_colis:0
+#: field:product.template,qty_available_colis:0
+msgid "Colis Qty Available"
+msgstr "Colis Qte Disponible"
+
+#. module: update_product
+#: field:product.product,qty_reserved_production_colis:0
+#: field:product.template,qty_reserved_production_colis:0
+msgid "Colis Reserved Production"
+msgstr "Colis Res. Fabrication"
+
+#. module: update_product
+#: field:product.product,virtual_available_colis:0
+#: field:product.template,virtual_available_colis:0
+msgid "Colis Virtual Available "
+msgstr "Colis Quantité prévue"
+
+#. module: update_product
+#: field:product.product,qty_waiting_colis:0
+#: field:product.template,qty_waiting_colis:0
+msgid "Colis Waiting"
+msgstr "Colis En attente"
+
+#. module: update_product
+#: view:product.template:0
+msgid "Colis/Bobines"
+msgstr "Colis/Bobines"
+
+#. module: update_product
+#: field:product.product,recompute_grammage:0
+msgid "Compute gramamge"
+msgstr "Calculer le grammage"
+
+#. module: update_product
+#: field:product.farde,create_uid:0
+#: field:product.sleeve,create_uid:0
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: update_product
+#: field:product.farde,create_date:0
+#: field:product.sleeve,create_date:0
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: update_product
+#: view:product.product:0
+#: field:product.sleeve,default_code:0
+msgid "Default Code"
+msgstr "Code par défaut"
+
+#. module: update_product
+#: field:product.product,dep_gaillette:0
+#: field:product.template,dep_gaillette:0
+msgid "Dep. Gaillette"
+msgstr "Départ"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Description de l'article et remarque ..."
+msgstr "Description de l'article et remarque ..."
+
+#. module: update_product
+#: field:product.product,developpement:0
+msgid "Development"
+msgstr "Development"
+
+#. module: update_product
+#: field:sale.order.line,ean13:0
+msgid "EAN13"
+msgstr "EAN13"
+
+#. module: update_product
+#: model:stock.location,name:update_product.stock_location_on_call
+msgid "En appel"
+msgstr "En appel"
+
+#. module: update_product
+#: code:addons/update_product/product.py:338
+#: code:addons/update_product/product.py:345
+#: code:addons/update_product/product.py:354
+#: code:addons/update_product/product.py:371
+#: code:addons/update_product/product.py:378
+#: code:addons/update_product/product.py:387
+#: code:addons/update_product/product.py:410
+#, python-format
+msgid "Error!"
+msgstr "Erreur!"
+
+#. module: update_product
+#: field:product.product,fsc_product:0
+msgid "FSC"
+msgstr "FSC"
+
+#. module: update_product
+#: view:product.template:0
+msgid "Famille"
+msgstr "Famille"
+
+#. module: update_product
+#: model:ir.actions.act_window,name:update_product.product_farde_action_form
+#: model:ir.ui.menu,name:update_product.menu_product_farde_action_form
+#: model:ir.ui.menu,name:update_product.menu_product_farde_action_form_mrp
+#: model:ir.ui.menu,name:update_product.menu_product_farde_action_form_purchase
+#: model:ir.ui.menu,name:update_product.menu_product_farde_action_form_stock
+#: view:product.farde:0
+#: view:product.product:0
+#: field:product.product,farde_id:0
+msgid "Farde"
+msgstr "Farde"
+
+#. module: update_product
+#: field:product.farde,name:0
+msgid "Farde Name"
+msgstr "Nom de la Farde"
+
+#. module: update_product
+#: field:product.product,f_pliage_1:0
+#: field:product.product,f_pliage_2:0
+msgid "Format Pliage (CmXCm)"
+msgstr "Format Pliage (CmXCm)"
+
+#. module: update_product
+#: model:stock.location,name:update_product.stock_location_gaillette
+msgid "Gaillette"
+msgstr "Gaillette"
+
+#. module: update_product
+#: field:product.product,grammage:0
+msgid "Grammage (gr/m2)"
+msgstr "Grammage (gr/m2)"
+
+#. module: update_product
+#: field:product.farde,id:0
+#: field:product.sleeve,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: update_product
+#: field:product.product,qty_production:0
+#: field:product.template,qty_production:0
+msgid "In Production"
+msgstr "En fabrication"
+
+#. module: update_product
+#: field:product.farde,infographie:0
+msgid "Infographie"
+msgstr "Infographie"
+
+#. module: update_product
+#: field:product.product,ink_formula:0
+#: field:product.sleeve,ink_formula:0
+msgid "Ink Formula"
+msgstr "Formule de l'encre"
+
+#. module: update_product
+#: view:product.product:0
+#: view:product.template:0
+msgid "Internal Category"
+msgstr "Famille"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Inventory"
+msgstr "Stock"
+
+#. module: update_product
+#: field:product.product,largeur:0
+msgid "Largeur (Metres)"
+msgstr "Largeur (Metres)"
+
+#. module: update_product
+#: field:product.farde,write_uid:0
+#: field:product.sleeve,write_uid:0
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: update_product
+#: field:product.farde,write_date:0
+#: field:product.sleeve,write_date:0
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: update_product
+#: field:stock.warehouse,lot_gaillette_id:0
+msgid "Location Gaillette"
+msgstr "Emplacement Gaillette"
+
+#. module: update_product
+#: field:stock.warehouse,lot_oncall_id:0
+msgid "Location On call"
+msgstr "Emplacement en Appel"
+
+#. module: update_product
+#: field:product.product,longueur:0
+msgid "Longueur (Metres)"
+msgstr "Longueur (Metres)"
+
+#. module: update_product
+#: field:product.product,nbr_color:0
+msgid "Number of color"
+msgstr "Nombre de couleur"
+
+#. module: update_product
+#: field:product.product,date_obsolete:0
+msgid "Obsolete Date"
+msgstr "Date d'obsolescence"
+
+#. module: update_product
+#: field:product.product,oncallqty:0
+#: field:product.template,oncallqty:0
+msgid "On call"
+msgstr "En appel"
+
+#. module: update_product
+#: view:product.template:0
+msgid "Packaging"
+msgstr "Packaging"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Packaging"
+msgstr "Emballage"
+
+#. module: update_product
+#: field:product.product,paletissation_id:0
+msgid "Paletissation"
+msgstr "Paletissation"
+
+#. module: update_product
+#: field:product.product,pantone:0
+msgid "Pantone"
+msgstr "Pantone"
+
+#. module: update_product
+#: view:product.template:0
+msgid "Physical Stock"
+msgstr "Stock Physique"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Physical Stock"
+msgstr "Stock Physique"
+
+#. module: update_product
+#: field:product.product,predecoupe:0
+msgid "Predecoupe"
+msgstr "Predecoupe"
+
+#. module: update_product
+#: field:product.product,print_schema:0
+msgid "Print Schema"
+msgstr "Schema étiquette"
+
+#. module: update_product
+#: field:product.product,print_step:0
+msgid "Print Step (cm)"
+msgstr "Pas d'impression(cm)"
+
+#. module: update_product
+#: field:product.product,print_two_face:0
+msgid "Print two faces"
+msgstr "Impression deux faces"
+
+#. module: update_product
+#: model:ir.model,name:update_product.model_product_product
+#: model:ir.ui.menu,name:update_product.menu_procurement_management_bhc
+#: view:product.farde:0
+msgid "Product"
+msgstr "Article"
+
+#. module: update_product
+#: model:ir.actions.act_window,name:update_product.bhc_product_category_action
+#: model:ir.ui.menu,name:update_product.menu_bhc_products_category
+msgid "Product By Categories"
+msgstr "Produit par famille"
+
+#. module: update_product
+#: model:ir.ui.menu,name:update_product.menu_product_category_config_mrp
+msgid "Product Categories"
+msgstr "Familles d'articles"
+
+#. module: update_product
+#: model:ir.ui.menu,name:update_product.menu_product_category_type_action_form_mrp
+#: model:ir.ui.menu,name:update_product.menu_product_category_type_action_form_purchase
+#: model:ir.ui.menu,name:update_product.menu_product_category_type_action_form_stock
+msgid "Product Categories Type"
+msgstr "Type de familles d'article"
+
+#. module: update_product
+#: model:ir.model,name:update_product.model_product_category
+msgid "Product Category"
+msgstr "Familles d'articles"
+
+#. module: update_product
+#: view:product.farde:0
+msgid "Product Farde"
+msgstr "Farde"
+
+#. module: update_product
+#: model:ir.model,name:update_product.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: update_product
+#: model:ir.actions.act_window,name:update_product.product_normal_action_mrp
+#: model:ir.actions.act_window,name:update_product.product_normal_action_purchase
+#: model:ir.actions.act_window,name:update_product.product_normal_action_stock
+#: model:ir.ui.menu,name:update_product.menu_stock_products_product_menu
+msgid "Product Variants"
+msgstr "Articles"
+
+#. module: update_product
+#: model:ir.ui.menu,name:update_product.menu_mrp_product_product
+#: model:ir.ui.menu,name:update_product.menu_purchase_product_product
+msgid "Products"
+msgstr "Articles"
+
+#. module: update_product
+#: field:product.product,qty_to_invoice:0
+msgid "Qty/unit inv."
+msgstr "Qte/unit facture"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Qualite..."
+msgstr "Qualite..."
+
+#. module: update_product
+#: field:product.product,quality:0
+msgid "Quality"
+msgstr "Qualité"
+
+#. module: update_product
+#: field:product.product,relief:0
+msgid "Relief"
+msgstr "Relief"
+
+#. module: update_product
+#: field:product.product,remarque:0
+msgid "Rem."
+msgstr "Rem."
+
+#. module: update_product
+#: field:product.product,qty_reserved_production:0
+#: field:product.template,qty_reserved_production:0
+msgid "Reserved Production"
+msgstr "Reserve Fabrication"
+
+#. module: update_product
+#: model:product.uom,name:update_product.product_uom_rouleau
+msgid "Rouleau"
+msgstr "Rouleau"
+
+#. module: update_product
+#: view:product.template:0
+msgid "Rouleaux/Kgs"
+msgstr "Rouleaux/Kgs"
+
+#. module: update_product
+#: view:product.template:0
+msgid "Sale Conditions"
+msgstr "Conditions de vente"
+
+#. module: update_product
+#: model:ir.model,name:update_product.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de commande de vente"
+
+#. module: update_product
+#: view:product.farde:0
+#: view:product.product:0
+msgid "Sleeve"
+msgstr "Sleeve"
+
+#. module: update_product
+#: field:product.farde,sleeves_ids:0
+#: view:product.product:0
+#: field:product.product,sleeves_ids:0
+msgid "Sleeves"
+msgstr "Sleeves"
+
+#. module: update_product
+#: view:product.template:0
+msgid "Start Packing"
+msgstr "Départ Emballage"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Start Packing"
+msgstr "Départ Emballage"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Status"
+msgstr "État"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Stock"
+msgstr "Stock"
+
+#. module: update_product
+#: view:product.template:0
+msgid "Stock and Expected Variations"
+msgstr "Stock et variation attendue"
+
+#. module: update_product
+#: view:product.template:0
+msgid "Storage Location"
+msgstr "Emplacement de stockage"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Technical Feature"
+msgstr "Caractéristiques Techniques"
+
+#. module: update_product
+#: code:addons/update_product/product.py:371
+#, python-format
+msgid "There is another Category with the same code!."
+msgstr "Il y a une autre catégorie avec le même code!"
+
+#. module: update_product
+#: code:addons/update_product/product.py:338
+#: code:addons/update_product/product.py:345
+#, python-format
+msgid "There is another Farde with the same code!."
+msgstr "Il y a une autre farde avec le même code!"
+
+#. module: update_product
+#: code:addons/update_product/product.py:378
+#, python-format
+msgid "There is another category with the same code!."
+msgstr "Il y a une autre catégorie avec le même code!"
+
+#. module: update_product
+#: view:product.template:0
+msgid "Title"
+msgstr "Titre"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Title"
+msgstr "Titre"
+
+#. module: update_product
+#: field:product.product,type_crochet:0
+msgid "Type crochet"
+msgstr "Type crochet"
+
+#. module: update_product
+#: model:ir.ui.menu,name:update_product.menu_mrp_uom_categ_form_action
+#: model:ir.ui.menu,name:update_product.menu_so_uom_categ_form_action
+#: model:ir.ui.menu,name:update_product.menu_stock_uom_categ_form_action
+msgid "Unit of Measure Categories"
+msgstr "Catégories d'unités de mesure"
+
+#. module: update_product
+#: model:ir.ui.menu,name:update_product.menu_mrp_uom_form_action
+#: model:ir.ui.menu,name:update_product.menu_so_uom_form_action
+#: model:ir.ui.menu,name:update_product.menu_stock_uom_form_action
+msgid "Units of Measure"
+msgstr "Unités de mesure"
+
+#. module: update_product
+#: field:product.product,qty_waiting:0
+#: field:product.template,qty_waiting:0
+msgid "Waiting"
+msgstr "En attente"
+
+#. module: update_product
+#: model:ir.model,name:update_product.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Entrepôt"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Weight (gramme)"
+msgstr "Poids (gramme)"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Weight Net (gramme)"
+msgstr "Poids Net (gramme)"
+
+#. module: update_product
+#: view:product.product:0
+msgid "Weights"
+msgstr "Poids (gramme)"
+
+#. module: update_product
+#: help:product.product,developpement:0
+msgid "When the draw is reproduce ?"
+msgstr "Quand le dessin est-il reproduit ?"
+
+#. module: update_product
+#: code:addons/update_product/product.py:387
+#, python-format
+msgid "You can't delete this category, there is a product linked to it!."
+msgstr "Vous ne pouvez pas supprimer cette catégorie, il y a un produit lié à cette catégorie!"
+
+#. module: update_product
+#: code:addons/update_product/product.py:354
+#, python-format
+msgid "You can't delete this farde, there is a product linked to it!."
+msgstr "Vous ne pouvez pas supprimer cette farde, il y a un produit lié à cette farde!"
+
+#. module: update_product
+#: code:addons/update_product/product.py:410
+#, python-format
+msgid "You can't delete this sleeve, there is a farde linked to it!."
+msgstr "Vous ne pouvez pas supprimer ce sleeve, il y a une farde liée à ce sleeve!"
+
+#. module: update_product
+#: help:product.product,recompute_grammage:0
+msgid "if check, we will recompute the value after each production order"
+msgstr "Si coché, nous recalculons le gramamge après chaque production"
+
+#. module: update_product
+#: model:product.uom,name:update_product.product_uom_paquet
+msgid "paquet"
+msgstr "paquet"
+
+#. module: update_product
+#: field:product.sleeve,name:0
+#: field:product.sleeve,prod_to_farde:0
+msgid "product"
+msgstr "produit"
+
+#. module: update_product
+#: model:ir.model,name:update_product.model_product_farde
+msgid "product.farde"
+msgstr "product.farde"
+
+#. module: update_product
+#: model:ir.model,name:update_product.model_product_palettisation
+msgid "product.palettisation"
+msgstr "product.palettisation"
+
+#. module: update_product
+#: model:ir.model,name:update_product.model_product_sleeve
+msgid "product.sleeve"
+msgstr "product.sleeve"
+
+#. module: update_product
+#: view:product.template:0
+msgid "⇒ Update"
+msgstr "⇒ Mise à jour"
+
+#. module: product
+#: field:product.product,type:0
+msgid "Product Type"
+msgstr "Type d'article"
+
+#. module: product
+#: view:product.template:0
+msgid "Product Name"
+msgstr "Nom"
+
+#. module: product
+#: field:product.attribute,name:0
+#: field:product.category,complete_name:0
+#: field:product.category,name:0
+#: field:product.pricelist.type,name:0
+#: field:product.pricelist.version,name:0
+#: field:product.template,name:0
+#: field:product.product,name:0
+#: field:product.ul,name:0
+#: field:product.uom.categ,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: product
+#: view:product.template:0
+#: view:product.product:0
+msgid "This note will be displayed on requests for quotation..."
+msgstr "This note will be displayed on requests for quotation..."
+
+#. module: product
+#: field:product.template,uos_id:0
+#: field:product.product,uos_id:0
+msgid "Unit of Sale"
+msgstr "Unité de vente"
+
+#. module: product
+#: view:product.template:0
+#: view:product.product:0
+msgid "note to be displayed on quotations..."
+msgstr "Note affichée sur les devis..."
+
+#. module: product
+#: field:product.template,uos_coeff:0
+#: field:product.product,uos_coeff:0
+msgid "Unit of Measure -> UOS Coeff"
+msgstr "Coeff. unité de mesure -> UdV"
+
+#. module: stock
+#: field:product.template,sale_delay:0
+#: field:product.product,sale_delay:0
+msgid "Customer Lead Time"
+msgstr "Délai de livraison au client"
+
+#. module: mrp
+#: field:product.template,produce_delay:0
+#: field:product.product,produce_delay:0
+#: field:res.company,manufacturing_lead:0
+msgid "Manufacturing Lead Time"
+msgstr "Délai de fabrication"
+
+#. module: stock
+#: field:procurement.order,location_id:0
+#: field:procurement.rule,location_id:0
+#: field:product.template,property_stock_procurement:0
+#: field:product.product,property_stock_procurement:0
+msgid "Procurement Location"
+msgstr "Emplacement d'approvisionnement"
+
+#. module: stock
+#: field:product.template,property_stock_production:0
+#: field:product.product,property_stock_production:0
+msgid "Production Location"
+msgstr "Emplacement de production"
+
+#. module: stock
+#: field:product.template,property_stock_inventory:0
+#: field:product.product,property_stock_inventory:0
+#: view:stock.warehouse:0
+msgid "Inventory Location"
+msgstr "Emplacement d'inventaire"
+
+#. module: stock_account
+#: field:product.category,property_stock_account_input_categ:0
+#: field:product.template,property_stock_account_input:0
+#: field:product.product,property_stock_account_input:0
+msgid "Stock Input Account"
+msgstr "Compte d'entrée en stock"
+
+#. module: stock_account
+#: field:product.category,property_stock_account_output_categ:0
+#: field:product.template,property_stock_account_output:0
+#: field:product.product,property_stock_account_output:0
+msgid "Stock Output Account"
+msgstr "Compte de sortie de stock"
+
+#. module: stock_account
+#: view:product.template:0
+#: view:product.product:0
+msgid "Accounting Entries"
+msgstr "Écritures comptables"
+
+#. module: account
+#: view:account.chart.template:0
+#: field:product.category,property_account_income_categ:0
+#: field:product.template,property_account_income:0
+#: field:product.product,property_account_income:0
+msgid "Income Account"
+msgstr "Compte de revenus"
+
+#. module: account
+#: field:product.template,taxes_id:0
+#: field:product.product,taxes_id:0
+msgid "Customer Taxes"
+msgstr "Taxes à la vente"
+
+#. module: account
+#: field:product.template,supplier_taxes_id:0
+#: field:product.product,supplier_taxes_id:0
+msgid "Supplier Taxes"
+msgstr "Taxes fournisseurs"
+
+#. module: account
+#: view:account.chart.template:0
+#: field:product.category,property_account_expense_categ:0
+#: field:product.template,property_account_expense:0
+#: field:product.product,property_account_expense:0
+msgid "Expense Account"
+msgstr "Compte de dépenses"

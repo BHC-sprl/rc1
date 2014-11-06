@@ -1,0 +1,251 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <record id="view_order_form_inh20140818" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>        
+            <field name="inherit_id" ref="sale.view_order_form"/>              
+            <field name="arch" type="xml">
+                
+            
+                              
+                <field name="partner_shipping_id" position="after">
+                    <field name="deliver_id" domain="[('supplier','=',True)]" options="{'no_create': True}"/>                      
+                    <field name="credit" readonly="True"/>     
+                    <field name="credit_overdue" readonly="True"/>                
+                    <field name="order_amount" readonly="True"/>
+                    <field name="order_all" readonly="True"/>      
+                    <field name="credit_limit" readonly="True"/>                     
+                    <field name="credit_limit_pacarbel" readonly="True"/> 
+                </field>
+                <field name="date_order" position="after">
+                    <field name="loading_date"/>
+                    <field name="desired_time"/>      
+                    <field name="ttl_palette"/> 
+                    <button name="check_discount" string="Discount" type="object" icon="terp-document-new"/>   
+                    <newline></newline>                       
+                    <field name="pds_net_ttl"/> 
+                    <field name="pds_brut_ttl"/>                                                        
+                 </field>                  
+                 <xpath expr="/form/sheet/notebook/page[@string='Order Lines']/field[@name='order_line']/form/field[@name='name']" position="after">
+                   <group>
+                        <field name="loading_date_confirmed"/>          
+                        <field name="desired_time"/>                                      
+                   </group>
+ 
+                   <field name="partial_loading_date_ids">
+                       <tree string ="Partial Loading Date" editable="top">
+                           <field name="name"/>
+                       </tree>
+                   </field>
+                </xpath>               
+
+     
+
+            </field>
+        </record>
+        
+         <record id="view_sales_order_filter_inh20140820" model="ir.ui.view">
+            <field name="name">sale.order.list.select</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>              
+            <field name="arch" type="xml">
+               <filter string="Order Month" domain="[]" context="{'group_by':'date_order'}" position="after">
+                   <filter string="Order Loading Date" domain="[]" context="{'group_by':'loading_date'}" name="loading_date_filter"/>
+                   <filter string="City" domain="[]" context="{'group_by':'city'}" name="loading_city_filter"/>
+                   <filter string="Country" domain="[]" context="{'group_by':'country'}" name="loading_country_filter"/>
+                   <filter string="Deliver" domain="[]" context="{'group_by':'deliver_id'}" name="loading_deliver_id_filter"/>                                                         
+               </filter>
+
+            </field>
+        </record>
+        
+        
+<!-- delivery information-->         
+        <record id="view_sale_deliver_info_tree" model="ir.ui.view">
+            <field name="name">sale.order.deliver.tree</field>
+            <field name="model">sale.order</field>
+            <field name="priority">4</field>
+            <field name="arch" type="xml">
+                <tree string="Delivery Information">
+                    <field name="loading_date"/>
+                    <field name="name" string="Quotation Number"/>
+                    <field name="partner_id"/>
+                    <field name="city"/>
+                    <field name="country"/>                    
+                    <field name="deliver_id"/>
+                    <field name="ttl_palette"/>
+                    <field name="state" invisible="True"/>                    
+                </tree>
+            </field>
+        </record>
+        
+         <record id="action_orders_to_deliver2" model="ir.actions.act_window">
+            <field name="name">Order to Deliver</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_sale_deliver_info_tree"/>              
+            <field name="search_view_id" ref="view_sales_order_filter_inh20140820"/>
+             <field name="context">{
+                    'search_default_loading_date_filter': 1
+                }
+            </field>
+          
+            <field name="domain">[('state', 'in', ('progress', 'manual', 'shipping_except','invoice_except'))]</field>
+        </record>
+
+        <menuitem action="action_orders_to_deliver2" id="menu_orders_to_deliver" parent="base.menu_sales" sequence="6" groups="base.group_sale_salesman,base.group_sale_manager"/>
+        
+<!-- Discount palette-->         
+
+        <record id="view_customer_to_palette_filter" model="ir.ui.view">
+            <field name="name">customer.to.palette.select</field>
+            <field name="model">customer.to.palette</field>
+            <field name="arch" type="xml">
+                <search string="Search Discount On Palette">
+                    <field name="name" operator="child_of"/>
+                    <filter string="Customer" domain="[]" context="{'group_by':'name'}"/>                                       
+               </search>
+            </field>
+        </record>
+
+        <record id="view_customer_to_palette_tree" model="ir.ui.view">
+            <field name="name">customer.to.palette.tree</field>
+            <field name="model">customer.to.palette</field>
+            <field name="priority">4</field>
+            <field name="arch" type="xml">
+                <tree string="Discount on Palette">
+                    <field name="name"/>                 
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_customer_to_palette_form" model="ir.ui.view">
+            <field name="name">customer.to.palette.form</field>
+            <field name="model">customer.to.palette</field>
+            <field name="priority">4</field>
+            <field name="arch" type="xml">
+                <form string="Discount on Palette">
+                    <sheet>
+                        <h1>
+	                       <field name="name"/>  
+	                    </h1>
+	                    <field name="palettes_ids">
+	                        <tree string="Palette">
+	                            <field name="min"/>    
+                                <field name="max"/>	                                                     
+	                        </tree>
+	                        <form>
+	                            <group>
+                                   <field name="min"/>
+                                   <field name="max"/>	                                                                
+                                </group>	                             
+	                            <field name="product_ids">
+			                        <tree string="Product" editable="top">
+			                            <field name="name"/> 
+	                                    <field name="discount"/> 		                                                        
+			                        </tree>                                
+	                             </field>                            
+	                        </form>  
+	                    </field> 
+                    </sheet>                                   
+                </form>
+            </field>
+        </record>        
+        
+         <record id="action_customer_to_palette" model="ir.actions.act_window">
+            <field name="name">Discount On Palette</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">customer.to.palette</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>            
+            <field name="search_view_id" ref="view_customer_to_palette_filter"/>
+        </record>
+
+        <menuitem action="action_customer_to_palette" id="menu_customer_to_palette" parent="base.menu_base_config" sequence="6" groups="base.group_sale_salesman,base.group_sale_manager"/>
+                
+        
+<!-- Pricelits updater-->         
+
+        <record id="view_pricelist_updater_filter" model="ir.ui.view">
+            <field name="name">pricelist.updater.select</field>
+            <field name="model">pricelist.updater</field>
+            <field name="arch" type="xml">
+                <search string="Search Price List Updater">
+                    <field name="name" string="Name" filter_domain="['|',('name','ilike',self)]"/>                                                                            
+               </search>
+            </field>
+        </record>
+
+        <record id="view_pricelist_updater_tree" model="ir.ui.view">
+            <field name="name">pricelist.updater.tree</field>
+            <field name="model">pricelist.updater</field>
+            <field name="priority">4</field>
+            <field name="arch" type="xml">
+                <tree string="Price List Updater">
+                    <field name="name"/> 
+                    <field name="pricelist"/>
+                    <field name="version_pricelist"/>                                    
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_pricelist_updater_form" model="ir.ui.view">
+            <field name="name">pricelist.updater.form</field>
+            <field name="model">pricelist.updater</field>
+            <field name="priority">4</field>
+            <field name="arch" type="xml">
+                <form string="Price List Updater">
+                    <header>
+                        <button name="launch_updater" string="Launch" type="object" icon="terp-document-new"/>                          
+                    </header>
+                    <sheet>
+                        <h1>
+                           <field name="name"/>  
+                        </h1>
+                        <group>
+		                    <field name="pricelist"/>
+		                    <field name="version_pricelist" domain="[('pricelist_id','=',pricelist)]"/>                                                         
+                        </group>                        
+                        <field name="updater_line">
+                            <tree string="Line" editable="top">
+	                            <field name="name"/>
+	                            <field name="lenght"/>
+	                            <field name="width"/>    
+	                            <field name="purcent_inking"/>
+	                            <field name="nbr_color"/>
+	                            <field name="qty"/>
+	                            <field name="price"/>                                                   
+                            </tree>
+                            <form>
+                                <group>
+	                                <field name="name"/>
+	                                <field name="lenght"/>
+	                                <field name="width"/>    
+	                                <field name="purcent_inking"/>
+	                                <field name="nbr_color"/>
+	                                <field name="qty"/>
+	                                <field name="price"/>                                    
+                                </group>                                                           
+                            </form>  
+                        </field> 
+                    </sheet>                                   
+                </form>
+            </field>
+        </record>        
+        
+         <record id="action_pricelist_updater" model="ir.actions.act_window">
+            <field name="name">Price List Updater</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pricelist.updater</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>            
+            <field name="search_view_id" ref="view_pricelist_updater_filter"/>
+        </record>
+
+        <menuitem action="action_pricelist_updater" id="menu_pricelist_updater" parent="product.menu_product_pricelist_main" sequence="6" groups="base.group_sale_salesman,base.group_sale_manager"/>
+                        
+     </data>
+</openerp>

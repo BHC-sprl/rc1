@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+	    <record id="invoice_form" model="ir.ui.view">
+            <field name="name">account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="fiscal_position" position="after">
+                    <field name="representant_id"/>
+                    <field name="amount_com" attrs="{'invisible': [('representant_id','=',False)]}"/>
+                </field>
+            </field>
+        </record>
+        
+	    <record id="invoice_supplier_form" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <field string="Supplier" name="partner_id" on_change="onchange_partner_id(type,partner_id,date_invoice,payment_term, partner_bank_id,company_id)"
+                              context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1}" domain="[('supplier', '=', True)]" position="before">
+                    <field name="com" />
+                    <field name="amount_com" attrs="{'invisible': [('com','=',False)]}"/>
+                </field>
+            </field>
+        </record>
+	    
+        <!-- Partner kanban view inherte -->
+        <record model="ir.ui.view" id="res_partner_kanban_view_inh2">
+            <field name="name">res.partner.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page[@string='Contacts']/field[@name='child_ids']/kanban/field[@name='email']" position="after">
+                    <field name="type"/>
+                </xpath>
+               <xpath expr="/form/sheet/notebook/page[@string='Contacts']/field[@name='child_ids']/kanban/templates/t/div/div/div/div/table[@class='oe_kanban_table']/tr/td/div[@t-if='record.phone.raw_value']" position="before">
+                    <li t-if="record.type.raw_value"><field name="type"/></li>
+                </xpath>
+            </field>
+        </record>
+              
+       
+		<record id="view_partner_form_inh_agent" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="website" widget="url" placeholder="e.g. www.openerp.com" position="after">
+                    <field name="invoicing_address" attrs="{'invisible': [('type','!=','delivery')]}" domain="[('type','=','invoice'),('parent_id','=',parent_id)]"/>
+                </field>
+                <xpath expr="/form/sheet/notebook/page[@name='internal_notes']/field[@name='comment']" position="after">
+                    <field name="closing" placeholder="Closing..."/>
+                    <field name="remarque_transport" placeholder="Rem. Delivery..."/>
+                </xpath>
+                <field name="user_id" position="after" >
+                    <field name="deliver_id" domain="[('supplier','=',True)]" options="{'no_create': True}"/>                    
+                    <field name="is_representant" on_change="is_representant_change(is_representant)"/> 
+                    <field name="representant" domain="[('is_representant','=',True)]" options="{'no_create': True}"/>
+                    <field name="pricelist_com_id" domain="[('type','=','com')]" />
+                </field>
+                <field name="ref" position="replace">
+                    <field name="ref" attrs="{'required': [('is_company','=',True)]}"/>
+                </field>
+                <page string="Accounting" position="before">
+	                <page string="History" >
+	                    <group string="Sales Order Lines">
+	                        <field name="so_lines" nolabel="1">
+	                             <tree string="Sales Order Lines">
+                                  <field name="order_id"/>
+                                  <field name="product_id"/>
+                                  <field name="product_uom_qty"/>
+                                  <field name="product_uom"/>
+                                  <field name="price_subtotal"/>
+                                  <field name="state"/>
+                              </tree>
+                          </field>
+	                    </group>
+	                </page>
+	            </page>
+                <page string="Accounting" position="before">
+                    <page string="Representative" attrs="{'invisible': [('is_representant','=',False)]}">
+                        <!-- <group string="Commissionning">
+                            <field name="pricelist_com_id" domain="[('type','=','com')]" attrs="{'required': [('is_representant','=',True)]}" />
+                        </group>-->
+                        <group>    
+                            <group>
+                                <field name="amount_com" />
+                            </group>
+                             <group>
+                                <field name="amount_com_prev" />
+                            </group>
+                        </group>
+                        <group string="Invoices">
+                          <field name="invoice_rep_ids" nolabel="1">
+                              <tree string="Invoices">
+                                  <field name="partner_id"/>
+                                  <field name="number"/>
+                                  <field name="date_invoice"/>
+                                  <field name="date_due"/>
+                                  <field name="amount_untaxed"/>
+                                  <field name="amount_total"/>
+                                  <field name="amount_com"/>
+                                  <field name="state"/>
+                              </tree>
+                         </field>
+                        </group>
+                        <group string="Customers">
+                          <field name="partner_ids" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+                <notebook position="inside">
+                    <page string="Supplier" attrs="{'invisible': [('supplier','=',False)]}">
+                        <group>
+	                      <field name="activity_type"/>
+	                      <field name="blocage"/>                       
+	                      <field name="fsc"/>                              
+                        </group>
+                    </page>
+                    <page string="Evaluation" attrs="{'invisible': [('supplier','=',False)]}">
+                        <group>
+                            <field name="moy_invoice_ids2" readonly="True"/>
+                            <field name="invoice_ids2" widget="many2many" readonly="True" colspan="4" nolabel="1">
+                                <tree string="Invoices">
+                                    <field name="number" readonly="True"/>
+                                    <field name="ttl_evaluation" readonly="True"/>
+                                </tree>
+                            </field>
+                        </group>                    
+                    </page>
+                </notebook>                 
+            </field>
+        </record>
+	</data>
+</openerp>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="style_bhc">
+    body {
+        color: black !important;
+    }
+    .border-black td {
+        border-top: 1px solid black !important;
+    }
+    .table-condensed {
+        border-bottom: 1px solid black !important;
+        border-top: 1px solid black !important;
+    }
+    .table-condensed > thead > tr > th {
+        border-top: 1px solid black !important;
+        border:1px solid black;     
+    }
+    .table-condensed > tbody > tr > td {
+        border-top: 1px solid transparent !important;
+        border-left: 1px solid black !important; 
+        border-right: 1px solid black !important;      
+    }
+    .table-condensed > border-black tr >td  {
+        border-top: 1px solid black !important;
+    }
+    .table-condensed2  {
+        border: 1px solid black !important;
+    }
+    .table-condensed3  {
+        border-top: 2px solid black !important;
+        border: 2px solid black !important;
+    }
+    .table-condensed3 > thead >tr>th  {
+        border-left: 2px solid black !important;
+        border-right: 2px solid black !important;
+        border-bottom: 1px solid transparent !important;
+    }
+    .table-condensed3 > tbody >tr>td  {
+        border-left: 2px solid black !important;
+        border-right: 2px solid black !important;
+        border-bottom: 1px solid transparent !important;
+        font: Verdana 20px;
+    }
+    .zero_min_height {
+        min-height: 0px !important;
+    }
+    
+    B.rouge {font: Verdana 12px; color: #FF0000; }
+</template>
+<template id="layout_p">
+    <t t-if="o and 'company_id' in o">
+        <t t-set="company" t-value="o.company_id"></t>
+    </t>
+    <t t-if="not o or not 'company_id' in o">
+        <t t-set="company" t-value="res_company"></t>
+    </t>
+    <t t-call="sale_date.header" />
+    <t t-raw="0" />
+    <t t-call="sale_date.footer" />
+</template>
+
+<template id="header">
+    <div class="header">
+        <div class="row">
+            <div class="col-xs-3">
+                <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="margin-top:40px;max-height: 120px;"/>
+            </div>
+            <div class="col-xs-5 text-right" style="margin-top:50px" >
+                <b><span t-field="company.street"/></b><br/>
+                <b><span t-field="company.street2"/></b><br/>
+                <b><span t-field="company.zip"/> <span t-field="company.city"/></b><br/>
+             </div>
+            <div class="col-xs-9 text-right" style="margin-top:-60px" >
+                <b>Tél:<span t-field="company.phone"/></b><br/>
+                <b>Fax:<span t-field="company.fax"/></b><br/>
+                <b><span t-field="company.website"/></b><br/>
+             </div>
+         </div>
+    </div>
+</template>
+
+<template id="footer">
+    <div class="footer">
+        
+    </div>      
+</template>
+</data>
+</openerp>

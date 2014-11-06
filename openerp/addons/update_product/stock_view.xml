@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+         <record id="view_warehouse_inh2014072014" model="ir.ui.view">
+            <field name="name">stock.warehouse</field>
+            <field name="model">stock.warehouse</field>
+            <field name="inherit_id" ref="stock.view_warehouse"/>              
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="lot_oncall_id" groups="stock.group_locations" />
+                    <field name="lot_gaillette_id" groups="stock.group_locations" />                    
+                </field>
+            </field>
+        </record>
+        
+        <record id="product_normal_action_stock" model="ir.actions.act_window">
+            <field name="name">Product Variants</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="product.product_product_tree_view"/>
+            <field name="search_view_id" ref="product.product_search_form_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to define a new product.
+              </p><p>
+                You must define a product for everything you sell, whether it's
+                a physical product, a consumable or a service you offer to
+                customers.
+              </p><p>
+                The product form contains information to simplify the sale
+                process: price, notes in the quotation, accounting data,
+                procurement methods, etc.
+              </p>
+            </field>
+        </record>
+         
+         
+         <menuitem action="product_normal_action_stock" id="menu_stock_products_product_menu" parent="stock.menu_stock_product" sequence="1"/>
+         
+                  
+     </data>
+</openerp>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+   
+        <!--
+    Resource: product.price.type
+    -->
+        <record id="com_price" model="product.price.type">
+            <field name="name">Commissioning Price</field>
+            <field name="field">list_price</field>
+        </record>
+
+        <!--
+    Price list type
+    -->
+        <record id="pricelist_type_com" model="product.pricelist.type">
+            <field name="name">Commissioning Price</field>
+            <field name="key">com</field>
+        </record>
+
+        <!--
+    Price list
+    -->
+        <record id="com0" model="product.pricelist">
+            <field name="name">Commissionning Pricelist</field>
+            <field name="type">com</field>
+        </record>
+        
+        <record id="v1" model="product.pricelist.version">
+            <field name="pricelist_id" ref="com0"/>
+            <field name="name">Version of  default commissionning pricelist line</field>
+        </record>
+        
+          <record id="items0" model="product.pricelist.item">
+            <field name="price_version_id" ref="v1"/>
+            <field name="base" ref="com_price"/>
+            <field name="sequence">1000</field>
+            <field name="price_discount">-0.9000</field>
+            <field name="name"></field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+        <record id="view_supplier_evaluation_filter" model="ir.ui.view">
+            <field name="name">supplier.evaluation.select</field>
+            <field name="model">supplier.evaluation.configuration</field>
+            <field name="arch" type="xml">
+                <search string="Search Evaluation">
+                    <field name="name" string="Name" filter_domain="[('name','ilike',self)]"/>
+                    <group expand="0" string="Group By...">
+                      <filter name="group_by_ponderation" string="Ponderation" domain="[]" context="{'group_by':'ponderation'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>  	    
+	    
+        <record id="view_supplier_evaluation_form" model="ir.ui.view">
+            <field name="name">supplier.evaluation.form</field>
+            <field name="model">supplier.evaluation.configuration</field>
+            <field name="arch" type="xml">
+              <form string="Supplier Evaluation" version="7.0">
+                <sheet string="Supplier Evaluation">
+                    <group>
+                         <field name='name'/> 
+                         <field name='ponderation'/>
+                    </group>
+                </sheet>  
+             </form>              
+           </field>
+       </record>
+       
+        <record id="view_supplier_evaluation_tree" model="ir.ui.view">
+            <field name="name">supplier.evaluation.tree</field>
+            <field name="model">supplier.evaluation.configuration</field>
+            <field name="arch" type="xml">
+              <tree string="Supplier Evaluation">
+                  <field name='name'/> 
+                  <field name='ponderation'/>
+              </tree>              
+           </field>
+       </record>    
+       
+         <record id="action_supplier_evaluation_tree" model="ir.actions.act_window">
+            <field name="name">Evaluation</field>
+            <field name="res_model">supplier.evaluation.configuration</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_supplier_evaluation_tree"/>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="view_supplier_evaluation_filter"/>
+        </record>
+
+        
+        <menuitem action="action_supplier_evaluation_tree" id="menu_action_supplier_evaluation_tree_view" sequence="60" parent="purchase.menu_purchase_config_purchase"/>
+        
+        
+        
+	</data>
+</openerp>

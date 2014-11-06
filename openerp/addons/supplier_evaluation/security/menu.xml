@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+        
+        <record model="ir.ui.menu" id="supplier_evaluation.menu_action_supplier_evaluation_tree_view">
+            <field eval="[(6,0,[ref('purchase.group_purchase_user'),ref('purchase.group_purchase_manager')])]" name="groups_id"/>
+        </record>
+        
+        
+    </data> 
+</openerp>

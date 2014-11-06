@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_order_form_2014_05_28" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">          
+                <field name="partner_id" on_change="onchange_partner_id(partner_id, context)" domain="[('customer','=',True)]" context="{'search_default_customer':1, 'show_address': 1}" options='{"always_reload": True}' position="replace">
+                     <field name="partner_id" on_change="onchange_partner_id(partner_id, context)" domain="[('customer','=',True),('is_company','=',True)]" context="{'search_default_customer':1, 'show_address': 1}" options='{"always_reload": True}'/>                                                                 
+                </field>    
+                              
+                <xpath expr="/form/sheet/notebook/page[@string='Order Lines']/field[@name='order_line']/form/group/group/field[@name='price_unit']" position="before">
+                    <field name="nbr_def_carton" />
+                    <field name="nbr_def_palette" />                                        
+                    <field name="carton" on_change="onchange_carton(carton, product_id, context)"/>
+                    <field name="palette" on_change="onchange_palette(palette, product_id, context)"/>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page[@string='Order Lines']/field[@name='order_line']/tree/field[@name='price_unit']" position="before">
+                    <field name="carton" on_change="onchange_carton(carton, product_id, context)"/>
+                    <field name="palette" on_change="onchange_palette(palette, product_id, context)"/>
+                    
+                    
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page[@string='Order Lines']/field[@name='order_line']/form/group/group/field[@name='address_allotment_id']" position="replace">
+                     <field name="address_allotment_id" group="access_right_pacarbel.group_invisible"/>                        
+                     <field name="qty_in_stock"/>
+                     <field name="pds_ttl"/>
+                     <field name="pds_delivery"/>                   
+                </xpath>    
+                
+                <xpath expr="/form/sheet/notebook/page[@string='Order Lines']/field[@name='order_line']/tree/field[@name='th_weight']" position="after">
+                    <field name="code"/>
+                </xpath>  
+                
+                               
+                 <xpath expr="/form/sheet/notebook/page[@string='Order Lines']/field[@name='order_line']/form/group/group/field[@name='product_id']" position="before">
+                   <field name="code" invisible="True"/>  
+                </xpath>                
+           </field>
+       </record> 
+
+        <record id="view_order_form_inherit_bhc29082014" model="ir.ui.view">
+            <field name="name">sale.order.form.sale.stock</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page[@string='Order Lines']/field[@name='order_line']/tree/field[@name='product_id']" position="replace">
+                     <field name="product_id"
+                         context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'uom':product_uom}"
+                         groups="access_right_pacarbel.group_invisible" 
+                         on_change="product_id_change(parent.pricelist_id, product_id, product_uom_qty, False, product_uos_qty, False, name, parent.partner_id, False, True, parent.date_order, False, parent.fiscal_position, False, context)"
+                         invisible="1"/>
+                    
+                </xpath> 
+                
+                <field name="partner_shipping_id" position="replace">             
+                </field>                
+                
+                <field name="partner_invoice_id" position="replace">
+                  <field name="partner_shipping_id" on_change="onchange_delivery_id(company_id, partner_id, partner_shipping_id, fiscal_position)" context="{}" groups="sale.group_delivery_invoice_address" domain="[('type','=','delivery'),('is_company','=',False),('parent_id','=',partner_id)]"/>                                               
+                    <field name="partner_invoice_id" groups="sale.group_delivery_invoice_address" context="{}" domain="[('type','=','invoice'),('is_company','=',False),('parent_id','=',partner_id)]"/>                   
+                </field>
+
+            </field>
+       </record>
+        
+        
+    </data>
+</openerp>
